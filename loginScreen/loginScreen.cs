@@ -30,6 +30,7 @@ namespace CompanyManagmentSystem
 
             // Şu anki formu gizleyebilirsiniz, isteğe bağlı
             this.Hide();
+            MessageBox.Show("Merhaba");
         }
     }
 }
