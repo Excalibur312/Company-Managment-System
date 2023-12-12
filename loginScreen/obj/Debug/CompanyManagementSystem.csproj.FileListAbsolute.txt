@@ -1,0 +1,13 @@
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\bin\Debug\loginScreen.exe.config
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\bin\Debug\loginScreen.exe
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\bin\Debug\loginScreen.pdb
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagementSystem.csproj.AssemblyReference.cache
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagementSystem.csproj.SuggestedBindingRedirects.cache
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagmentSystem.ikincilekran.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagmentSystem.Form1.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.Properties.Resources.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagementSystem.csproj.GenerateResource.cache
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.exe
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.pdb
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.forgetpassword.resources

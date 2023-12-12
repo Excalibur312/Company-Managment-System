@@ -28,24 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnIseAlim = new System.Windows.Forms.Button();
+            this.btnMailOku = new System.Windows.Forms.Button();
+            this.btnMailYaz = new System.Windows.Forms.Button();
+            this.btnMailDcm = new System.Windows.Forms.Button();
+            this.btnAyarlar = new System.Windows.Forms.Button();
+            this.btnCikis = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnIseAlim
             // 
-            this.button1.Location = new System.Drawing.Point(558, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIseAlim.Location = new System.Drawing.Point(12, 30);
+            this.btnIseAlim.Name = "btnIseAlim";
+            this.btnIseAlim.Size = new System.Drawing.Size(75, 23);
+            this.btnIseAlim.TabIndex = 0;
+            this.btnIseAlim.Text = "İşe Alım";
+            this.btnIseAlim.UseVisualStyleBackColor = true;
+            // 
+            // btnMailOku
+            // 
+            this.btnMailOku.Location = new System.Drawing.Point(12, 75);
+            this.btnMailOku.Name = "btnMailOku";
+            this.btnMailOku.Size = new System.Drawing.Size(127, 25);
+            this.btnMailOku.TabIndex = 1;
+            this.btnMailOku.Text = "Mailleri Göster";
+            this.btnMailOku.UseVisualStyleBackColor = true;
+            // 
+            // btnMailYaz
+            // 
+            this.btnMailYaz.Location = new System.Drawing.Point(12, 119);
+            this.btnMailYaz.Name = "btnMailYaz";
+            this.btnMailYaz.Size = new System.Drawing.Size(127, 24);
+            this.btnMailYaz.TabIndex = 2;
+            this.btnMailYaz.Text = "Mail Gönder";
+            this.btnMailYaz.UseVisualStyleBackColor = true;
+            // 
+            // btnMailDcm
+            // 
+            this.btnMailDcm.Location = new System.Drawing.Point(12, 171);
+            this.btnMailDcm.Name = "btnMailDcm";
+            this.btnMailDcm.Size = new System.Drawing.Size(127, 24);
+            this.btnMailDcm.TabIndex = 3;
+            this.btnMailDcm.Text = "Mailleri Pdfleştir";
+            this.btnMailDcm.UseVisualStyleBackColor = true;
+            // 
+            // btnAyarlar
+            // 
+            this.btnAyarlar.Location = new System.Drawing.Point(12, 219);
+            this.btnAyarlar.Name = "btnAyarlar";
+            this.btnAyarlar.Size = new System.Drawing.Size(75, 23);
+            this.btnAyarlar.TabIndex = 4;
+            this.btnAyarlar.Text = "Ayarlar";
+            this.btnAyarlar.UseVisualStyleBackColor = true;
+            // 
+            // btnCikis
+            // 
+            this.btnCikis.Location = new System.Drawing.Point(12, 270);
+            this.btnCikis.Name = "btnCikis";
+            this.btnCikis.Size = new System.Drawing.Size(75, 31);
+            this.btnCikis.TabIndex = 5;
+            this.btnCikis.Text = "Çıkış";
+            this.btnCikis.UseVisualStyleBackColor = true;
             // 
             // ikincilekran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCikis);
+            this.Controls.Add(this.btnAyarlar);
+            this.Controls.Add(this.btnMailDcm);
+            this.Controls.Add(this.btnMailYaz);
+            this.Controls.Add(this.btnMailOku);
+            this.Controls.Add(this.btnIseAlim);
             this.Name = "ikincilekran";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -54,7 +109,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button btnIseAlim;
+        private System.Windows.Forms.Button btnMailOku;
+        private System.Windows.Forms.Button btnMailYaz;
+        private System.Windows.Forms.Button btnMailDcm;
+        private System.Windows.Forms.Button btnAyarlar;
+        private System.Windows.Forms.Button btnCikis;
     }
 }
 
