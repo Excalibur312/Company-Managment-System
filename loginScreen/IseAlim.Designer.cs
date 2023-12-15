@@ -37,7 +37,6 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -124,15 +123,6 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Authority";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(40, 326);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 16);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Authority Level";
-            // 
             // textBoxUsername
             // 
             this.textBoxUsername.Location = new System.Drawing.Point(43, 133);
@@ -161,6 +151,7 @@
             this.comboBoxAuthorityLevel.Name = "comboBoxAuthorityLevel";
             this.comboBoxAuthorityLevel.Size = new System.Drawing.Size(174, 24);
             this.comboBoxAuthorityLevel.TabIndex = 13;
+            this.comboBoxAuthorityLevel.Visible = false;
             // 
             // comboBoxAuthority
             // 
@@ -169,6 +160,7 @@
             this.comboBoxAuthority.Name = "comboBoxAuthority";
             this.comboBoxAuthority.Size = new System.Drawing.Size(174, 24);
             this.comboBoxAuthority.TabIndex = 14;
+            this.comboBoxAuthority.SelectedIndexChanged += new System.EventHandler(this.comboBoxAuthority_SelectedIndexChanged);
             // 
             // IseAlim
             // 
@@ -180,7 +172,6 @@
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxSurname);
             this.Controls.Add(this.textBoxUsername);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxDepartment);
             this.Controls.Add(this.textBoxName);
@@ -208,7 +199,6 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.TextBox textBoxSurname;
         private System.Windows.Forms.TextBox textBoxPassword;
