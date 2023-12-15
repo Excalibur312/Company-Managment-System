@@ -53,5 +53,17 @@ namespace CompanyManagmentSystem
             }
         }
 
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Form1 loginSceenForm = new Form1();
+            loginSceenForm.Show();
+            this.Hide();
+       
+        }
+
+        private void btnAyarlar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,10 +46,10 @@ namespace CompanyManagmentSystem
                 connection.Open();
 
                 // SQL sorgusu: Veritabanındaki kullanıcı adı ve şifre kontrolü
-                string query = "SELECT COUNT(*) FROM TableDeneme1 WHERE name = @name AND password = @password";
+                string query = "SELECT COUNT(*) FROM UserTable WHERE username = @username AND password = @password";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@name", username);
+                    command.Parameters.AddWithValue("@username", username);
                     command.Parameters.AddWithValue("@password", password);
 
                     int count = (int)command.ExecuteScalar();
@@ -62,14 +62,14 @@ namespace CompanyManagmentSystem
       
         public int GetUserAuthority(string username)
         {
-            string query = "SELECT authoritylevel FROM TableDeneme1 WHERE name = @name";
+            string query = "SELECT authoritylevel FROM UserTable WHERE username = @username";
 
             try
             {
                 connection.Open();
                 command.CommandText = query;
                 command.Parameters.Clear(); // Önceki parametreleri temizle
-                command.Parameters.AddWithValue("@name", username);
+                command.Parameters.AddWithValue("@username", username);
 
                 object result = command.ExecuteScalar();
 

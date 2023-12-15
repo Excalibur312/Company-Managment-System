@@ -1,4 +1,4 @@
-﻿namespace CompanyManagmentSystem
+﻿      namespace CompanyManagmentSystem
 {
     partial class Form1
     {

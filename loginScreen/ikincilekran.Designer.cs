@@ -32,7 +32,7 @@
             this.btnMailOku = new System.Windows.Forms.Button();
             this.btnMailYaz = new System.Windows.Forms.Button();
             this.btnMailDcm = new System.Windows.Forms.Button();
-            this.btnAyarlar = new System.Windows.Forms.Button();
+            this.btnBilgilendirme = new System.Windows.Forms.Button();
             this.btnCikis = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -72,14 +72,15 @@
             this.btnMailDcm.Text = "Mailleri Pdfleştir";
             this.btnMailDcm.UseVisualStyleBackColor = true;
             // 
-            // btnAyarlar
+            // btnBilgilendirme
             // 
-            this.btnAyarlar.Location = new System.Drawing.Point(12, 219);
-            this.btnAyarlar.Name = "btnAyarlar";
-            this.btnAyarlar.Size = new System.Drawing.Size(75, 23);
-            this.btnAyarlar.TabIndex = 4;
-            this.btnAyarlar.Text = "Ayarlar";
-            this.btnAyarlar.UseVisualStyleBackColor = true;
+            this.btnBilgilendirme.Location = new System.Drawing.Point(12, 219);
+            this.btnBilgilendirme.Name = "btnBilgilendirme";
+            this.btnBilgilendirme.Size = new System.Drawing.Size(100, 23);
+            this.btnBilgilendirme.TabIndex = 4;
+            this.btnBilgilendirme.Text = "Bilgilendirme";
+            this.btnBilgilendirme.UseVisualStyleBackColor = true;
+            this.btnBilgilendirme.Click += new System.EventHandler(this.btnAyarlar_Click);
             // 
             // btnCikis
             // 
@@ -89,6 +90,7 @@
             this.btnCikis.TabIndex = 5;
             this.btnCikis.Text = "Çıkış";
             this.btnCikis.UseVisualStyleBackColor = true;
+            this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
             // ikincilekran
             // 
@@ -96,7 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCikis);
-            this.Controls.Add(this.btnAyarlar);
+            this.Controls.Add(this.btnBilgilendirme);
             this.Controls.Add(this.btnMailDcm);
             this.Controls.Add(this.btnMailYaz);
             this.Controls.Add(this.btnMailOku);
@@ -113,7 +115,7 @@
         private System.Windows.Forms.Button btnMailOku;
         private System.Windows.Forms.Button btnMailYaz;
         private System.Windows.Forms.Button btnMailDcm;
-        private System.Windows.Forms.Button btnAyarlar;
+        private System.Windows.Forms.Button btnBilgilendirme;
         private System.Windows.Forms.Button btnCikis;
     }
 }
