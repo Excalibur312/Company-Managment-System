@@ -1,4 +1,4 @@
-﻿namespace loginScreen
+﻿namespace CompanyManagmentSystem
 {
     partial class forgetpassword
     {
@@ -55,10 +55,11 @@
             // 
             this.btnSifreyiDegistir.Location = new System.Drawing.Point(353, 293);
             this.btnSifreyiDegistir.Name = "btnSifreyiDegistir";
-            this.btnSifreyiDegistir.Size = new System.Drawing.Size(75, 23);
+            this.btnSifreyiDegistir.Size = new System.Drawing.Size(127, 23);
             this.btnSifreyiDegistir.TabIndex = 2;
             this.btnSifreyiDegistir.Text = "Şifreyi Değiştir";
             this.btnSifreyiDegistir.UseVisualStyleBackColor = true;
+            this.btnSifreyiDegistir.Click += new System.EventHandler(this.btnSifreyiDegistir_Click);
             // 
             // lblYeniSifre
             // 
@@ -73,11 +74,13 @@
             // 
             this.txtYeniSifre.Location = new System.Drawing.Point(103, 162);
             this.txtYeniSifre.Name = "txtYeniSifre";
+            this.txtYeniSifre.PasswordChar = '*';
             this.txtYeniSifre.Size = new System.Drawing.Size(100, 22);
             this.txtYeniSifre.TabIndex = 4;
             // 
             // forgetpassword
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
