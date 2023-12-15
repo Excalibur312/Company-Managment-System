@@ -59,7 +59,7 @@ namespace CompanyManagmentSystem
             }
         }
 
-      
+
         public int GetUserAuthority(string username)
         {
             string query = "SELECT authoritylevel FROM UserTable WHERE username = @username";

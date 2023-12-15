@@ -1,4 +1,5 @@
-﻿using System;
+﻿using loginScreen;
+using System;
 using System.Windows.Forms;
 
 namespace CompanyManagmentSystem
@@ -53,17 +54,24 @@ namespace CompanyManagmentSystem
             }
         }
 
-        private void btnCikis_Click(object sender, EventArgs e)
+        private void btnIseAlim_Click(object sender, EventArgs e)
         {
-            Form1 loginSceenForm = new Form1();
-            loginSceenForm.Show();
+            IseAlim IseAlimSec = new IseAlim();
+            IseAlimSec.Show();
             this.Hide();
-       
         }
 
         private void btnAyarlar_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            Form1 loginSceenForm = new Form1();
+            loginSceenForm.Show();
+            this.Hide();
+        }
     }
+   
 }

@@ -17,7 +17,7 @@ namespace loginScreen
 
         public SqlConnection connection;
         public SqlCommand command;
-        public string connectionString = "Data Source=172.16.23.125;Initial Catalog=CompanyManagment;User ID=Fevzi;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=JETAIME;Initial Catalog=CompanyManagment;Integrated Security=True";
         public IseAlim()
         {
             InitializeComponent();
@@ -31,13 +31,16 @@ namespace loginScreen
             object[] authorities = new object[] { "Manager", "Intern", "Employee" };
             comboBoxAuthority.Items.AddRange(authorities);
 
-            object[] authoritiesLevels = new object[] { "0", "1", "2" };
+            object[] authoritiesLevels = new object[] { "1", "2", "3" };
             comboBoxAuthorityLevel.Items.AddRange(authoritiesLevels);
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -64,7 +67,7 @@ namespace loginScreen
                     comboBoxDepartment.SelectedIndex = -1;
                     comboBoxAuthority.SelectedIndex = -1;
                     comboBoxAuthorityLevel.SelectedIndex = -1;
-                    
+
 
                     if (rowsAffected > 0)
                     {
