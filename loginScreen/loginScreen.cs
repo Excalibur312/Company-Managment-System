@@ -10,7 +10,7 @@ namespace CompanyManagmentSystem
     {
         public SqlConnection connection;
         public SqlCommand command;
-        public string connectionString = "Data Source=JETAIME;Initial Catalog=CompanyManagment;Integrated Security=True";
+        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         public Form1()
         {

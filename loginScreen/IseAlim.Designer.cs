@@ -146,6 +146,7 @@
             // 
             // comboBoxAuthorityLevel
             // 
+            this.comboBoxAuthorityLevel.Enabled = false;
             this.comboBoxAuthorityLevel.FormattingEnabled = true;
             this.comboBoxAuthorityLevel.Location = new System.Drawing.Point(43, 345);
             this.comboBoxAuthorityLevel.Name = "comboBoxAuthorityLevel";

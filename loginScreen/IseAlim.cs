@@ -1,52 +1,65 @@
-﻿using System;
+﻿using CompanyManagmentSystem;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace loginScreen
 {
     public partial class IseAlim : Form
     {
-
         public SqlConnection connection;
         public SqlCommand command;
-        private List<string> comboBoxAuthorityItems = new List<string> { "Manager", "Employee", "Intern"};
+        public List<string> comboBoxAuthorityItems = new List<string> { "Manager", "Employee", "Intern" };
+        public List<string> comboBoxDepartmentsItems = new List<string> { "Computer Engineering", "Robotics Engineering", "Software Engineering" };
+        public List<string> comboBoxAuthoirtItems = new List<string> { "1", "2", "3" };
 
-        private List<string> comboBoxDepartmentsItems = new List<string> { "Computer Engineering", "Robotics Engineering", "Software Engineering" };
+        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
-        private Dictionary<string, List<string>> comboBoxAuthorityLevelItems = new Dictionary<string, List<string>>()
-        {
-            { "Manager", new List<string> { "1"} },
-            { "Employee", new List<string> { "2"} },
-            { "Intern", new List<string> { "3" } }
-
-        };
-
-        public string connectionString = "Data Source=172.16.23.125;Initial Catalog=CompanyManagment;User ID=Fevzi;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
         public IseAlim()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
             command = new SqlCommand();
             command.Connection = connection;
-            comboBoxAuthority.DataSource= comboBoxAuthorityItems;
-            comboBoxDepartment.DataSource= comboBoxDepartmentsItems;
 
+            comboBoxAuthority.DataSource = comboBoxAuthorityItems;
+            comboBoxDepartment.DataSource = comboBoxDepartmentsItems;
 
+            // Do not set DataSource for comboBoxAuthorityLevel
+            comboBoxAuthorityLevel.Items.AddRange(comboBoxAuthoirtItems.ToArray());
+
+            // Add event handler for authority selection change
+            comboBoxAuthority.SelectedIndexChanged += comboBoxAuthority_SelectedIndexChanged;
         }
 
+        private void comboBoxAuthority_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = comboBoxAuthority.SelectedItem;
 
+            comboBoxAuthorityLevel.Items.Clear();
+
+            switch (selectedItem)
+            {
+                case "Manager":
+                    comboBoxAuthorityLevel.Items.AddRange(new object[] { "1" });
+                    break;
+                case "Employee":
+                    comboBoxAuthorityLevel.Items.AddRange(new object[] { "2" });
+                    break;
+                case "Intern":
+                    comboBoxAuthorityLevel.Items.AddRange(new object[] { "3" });
+                    break;
+                default:
+                    break;
+            }
+
+            if (comboBoxAuthorityLevel.Items.Count > 0)
+                comboBoxAuthorityLevel.SelectedIndex = 0;
+        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -62,16 +75,13 @@ namespace loginScreen
                     command.Parameters.AddWithValue("@password", textBoxPassword.Text);
                     command.Parameters.AddWithValue("@department", comboBoxDepartment.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@authority", comboBoxAuthority.SelectedItem.ToString());
-
                     command.Parameters.AddWithValue("@authoritylevel", comboBoxAuthorityLevel.SelectedItem.ToString());
-
                     int rowsAffected = command.ExecuteNonQuery();
 
-                    textBoxName.Text = " ";
-                    textBoxSurname.Text = " ";
-                    textBoxUsername.Text = " ";
-                    textBoxPassword.Text = " ";
-
+                    textBoxName.Text = "";
+                    textBoxSurname.Text = "";
+                    textBoxUsername.Text = "";
+                    textBoxPassword.Text = "";
 
                     if (rowsAffected > 0)
                     {
@@ -89,18 +99,5 @@ namespace loginScreen
             }
         }
 
-        private void comboBoxAuthority_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-                // İlk ComboBox'taki öğe değiştikçe, ikinci ComboBox'ı güncelle
-                string selectedOption = comboBoxAuthority.SelectedItem.ToString();
-
-                // İkinci ComboBox'ı seçilen öğeye göre doldur
-                if (comboBoxAuthorityLevelItems.ContainsKey(selectedOption))
-                {
-                comboBoxAuthorityLevel.DataSource = comboBoxAuthorityLevelItems[selectedOption];
-                }
-        
-        }
     }
 }

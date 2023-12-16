@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bilgilendirme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bilgilendirme.Designer.cs">
+      <DependentUpon>Bilgilendirme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="elemanyönetimi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="elemanyönetimi.Designer.cs">
+      <DependentUpon>elemanyönetimi.cs</DependentUpon>
+    </Compile>
     <Compile Include="forgetpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,8 +82,32 @@
     <Compile Include="loginScreen.Designer.cs">
       <DependentUpon>loginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="MailGönder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailGönder.Designer.cs">
+      <DependentUpon>MailGönder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailleriDökümante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailleriDökümante.Designer.cs">
+      <DependentUpon>MailleriDökümante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailleriOku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailleriOku.Designer.cs">
+      <DependentUpon>MailleriOku.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bilgilendirme.resx">
+      <DependentUpon>Bilgilendirme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="elemanyönetimi.resx">
+      <DependentUpon>elemanyönetimi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forgetpassword.resx">
       <DependentUpon>forgetpassword.cs</DependentUpon>
     </EmbeddedResource>
