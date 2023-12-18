@@ -6,7 +6,8 @@ namespace CompanyManagmentSystem
 {
     public partial class ikincilekran : Form
     {
-        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;"; public string username;
+        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;"; 
+        public string username;
         public int authority;
 
         public ikincilekran(string username, int authority)
@@ -89,7 +90,7 @@ namespace CompanyManagmentSystem
 
         private void btnMailYaz_Click(object sender, EventArgs e)
         {
-            MailGönder mailGönderForm = new MailGönder();
+            MailGönder mailGönderForm = new MailGönder(username);
             mailGönderForm.Show();
         }
 

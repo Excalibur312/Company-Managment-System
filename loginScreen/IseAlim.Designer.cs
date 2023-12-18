@@ -42,6 +42,7 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.comboBoxAuthorityLevel = new System.Windows.Forms.ComboBox();
             this.comboBoxAuthority = new System.Windows.Forms.ComboBox();
+            this.btnGeri = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -163,11 +164,22 @@
             this.comboBoxAuthority.TabIndex = 14;
             this.comboBoxAuthority.SelectedIndexChanged += new System.EventHandler(this.comboBoxAuthority_SelectedIndexChanged);
             // 
+            // btnGeri
+            // 
+            this.btnGeri.Location = new System.Drawing.Point(637, 382);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(75, 23);
+            this.btnGeri.TabIndex = 15;
+            this.btnGeri.Text = "Geri";
+            this.btnGeri.UseVisualStyleBackColor = true;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
             // IseAlim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.comboBoxAuthority);
             this.Controls.Add(this.comboBoxAuthorityLevel);
             this.Controls.Add(this.textBoxPassword);
@@ -205,5 +217,6 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.ComboBox comboBoxAuthorityLevel;
         private System.Windows.Forms.ComboBox comboBoxAuthority;
+        private System.Windows.Forms.Button btnGeri;
     }
 }

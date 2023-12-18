@@ -99,5 +99,9 @@ namespace loginScreen
             }
         }
 
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

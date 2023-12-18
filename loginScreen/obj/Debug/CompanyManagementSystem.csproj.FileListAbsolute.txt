@@ -10,4 +10,8 @@ C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\C
 C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagementSystem.csproj.CoreCompileInputs.cache
 C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.exe
 C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.pdb
-C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.forgetpassword.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\CompanyManagmentSystem.forgetpassword.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.IseAlim.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.ElemanYönetimi.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.Bilgilendirme.resources
+C:\Users\Emre KAYA\Desktop\Company-Managment-System-main\loginScreen\obj\Debug\loginScreen.MailGönder.resources
