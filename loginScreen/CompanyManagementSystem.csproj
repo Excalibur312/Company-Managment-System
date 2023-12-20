@@ -52,6 +52,9 @@
     <Compile Include="Bilgilendirme.Designer.cs">
       <DependentUpon>Bilgilendirme.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomBtn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="elemanyönetimi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Çalışma Yüzeyi 1%403x.,.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo [Kurtar_Çalışma Yüzeyi 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mini sceen_Çalışma Yüzeyi 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

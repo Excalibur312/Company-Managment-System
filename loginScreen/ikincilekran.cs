@@ -26,8 +26,8 @@ namespace CompanyManagmentSystem
             {
                 case 1:
                     // manager
-                    btnIseAlim.Visible = true;
-                    btnIseAlim.Enabled = true;
+                    btnIseAlim11111.Visible = true;
+                    btnIseAlim11111.Enabled = true;
                     btnYönetim.Visible = true;
                     btnYönetim.Enabled = true;
                     btnMailDcm.Visible = true;
@@ -35,37 +35,32 @@ namespace CompanyManagmentSystem
                     break;
                 case 2:
                     // employee
-                    btnIseAlim.Visible = false;
+                    btnIseAlim11111.Visible = false;
                     btnMailDcm.Visible = false;
                     btnYönetim.Visible=false;
                     btnYönetim.Enabled=false;
-                    btnIseAlim.Enabled = false;
+                    btnIseAlim11111.Enabled = false;
                     btnMailDcm.Enabled = false;
                     break;
                 case 3:
                     // stajyer
-                    btnIseAlim.Visible = false;
-                    btnIseAlim.Enabled = false;
+                    btnIseAlim11111.Visible = false;
+                    btnIseAlim11111.Enabled = false;
                     btnYönetim.Visible = false;
                     btnYönetim.Enabled = false;
                     btnMailDcm.Enabled= false;
                     btnMailDcm.Visible= false;
                     break;
                 default:
-                    btnIseAlim.Visible = true;
-                    btnIseAlim.Enabled = true;
+                    btnIseAlim11111.Visible = true;
+                    btnIseAlim11111.Enabled = true;
                     btnMailDcm .Visible = true;
                     btnMailDcm .Enabled = true;
                     break;
             }
         }
 
-        private void btnIseAlim_Click(object sender, EventArgs e)
-        {
-            IseAlim IseAlimSec = new IseAlim();
-            IseAlimSec.Show();
-        }
-
+        
        
 
         private void btnCikis_Click(object sender, EventArgs e)
@@ -104,6 +99,12 @@ namespace CompanyManagmentSystem
         {
             MailleriDökümante maillerDökümanteForm = new MailleriDökümante();
             maillerDökümanteForm.Show();
+        }
+
+        private void btnIseAlim_Click(object sender, EventArgs e)
+        {
+            IseAlim IseAlimSec = new IseAlim();
+            IseAlimSec.Show();
         }
     }
    
