@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="İşListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="İşListesi.Designer.cs">
+      <DependentUpon>İşListesi.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bilgilendirme.resx">
       <DependentUpon>Bilgilendirme.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +142,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="İşListesi.resx">
+      <DependentUpon>İşListesi.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,6 +175,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mini sceen_Çalışma Yüzeyi 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Hatırlayıcı\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

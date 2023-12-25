@@ -11,10 +11,11 @@ namespace loginScreen
         public SqlConnection connection;
         public SqlCommand command;
         public List<string> comboBoxAuthorityItems = new List<string> { "Manager", "Employee", "Intern" };
-        public List<string> comboBoxDepartmentsItems = new List<string> { "Computer Engineering", "Robotics Engineering", "Software Engineering" };
+        public List<string> comboBoxDepartmentsItems = new List<string> { "Computer", "Robotics", "Software" };
         public List<string> comboBoxAuthoirtItems = new List<string> { "1", "2", "3" };
+        public List<string> comboBoxDepartmentsLevelItems = new List<string> { "1", "2", "3" };
 
-        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         public IseAlim()
         {
@@ -28,9 +29,35 @@ namespace loginScreen
 
             // Do not set DataSource for comboBoxAuthorityLevel
             comboBoxAuthorityLevel.Items.AddRange(comboBoxAuthoirtItems.ToArray());
+            comboBoxDepartmentLevel.Items.AddRange(comboBoxDepartmentsLevelItems.ToArray());
 
             // Add event handler for authority selection change
             comboBoxAuthority.SelectedIndexChanged += comboBoxAuthority_SelectedIndexChanged;
+            comboBoxDepartment.SelectedIndexChanged += comboBoxDepartment_SelectedIndexChanged;
+        }
+        private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = comboBoxDepartment.SelectedItem;
+
+            comboBoxDepartmentLevel.Items.Clear();
+
+            switch (selectedItem)
+            {
+                case "Computer":
+                    comboBoxDepartmentLevel.Items.AddRange(new object[] { "1" });
+                    break;
+                case "Software":
+                    comboBoxDepartmentLevel.Items.AddRange(new object[] { "2" });
+                    break;
+                case "Robotics":
+                    comboBoxDepartmentLevel.Items.AddRange(new object[] { "3" });
+                    break;
+                default:
+                    break;
+            }
+
+            if (comboBoxDepartmentLevel.Items.Count > 0)
+                comboBoxDepartmentLevel.SelectedIndex = 0;
         }
 
         private void comboBoxAuthority_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,7 +93,7 @@ namespace loginScreen
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO UserTable (name, surname, username, password, department, authority, authoritylevel) VALUES (@name, @surname, @username, @password, @department, @authority, @authoritylevel)";
+                    string query = "INSERT INTO UserTable (name, surname, username, password, department, authority, authoritylevel,departmentlevel) VALUES (@name, @surname, @username, @password, @department, @authority, @authoritylevel,@departmentlevel)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@name", textBoxName.Text);
@@ -76,6 +103,7 @@ namespace loginScreen
                     command.Parameters.AddWithValue("@department", comboBoxDepartment.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@authority", comboBoxAuthority.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@authoritylevel", comboBoxAuthorityLevel.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@departmentlevel", comboBoxDepartmentLevel.SelectedItem.ToString());
                     int rowsAffected = command.ExecuteNonQuery();
 
                     textBoxName.Text = "";
@@ -103,5 +131,7 @@ namespace loginScreen
         {
             this.Hide();
         }
+
+  
     }
 }

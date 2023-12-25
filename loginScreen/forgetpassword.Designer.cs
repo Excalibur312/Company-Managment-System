@@ -37,29 +37,25 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 60);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Location = new System.Drawing.Point(100, 74);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(76, 20);
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 0;
             // 
             // lblusername
             // 
             this.lblusername.AutoSize = true;
-            this.lblusername.BackColor = System.Drawing.Color.Transparent;
-            this.lblusername.Location = new System.Drawing.Point(73, 26);
-            this.lblusername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblusername.Location = new System.Drawing.Point(97, 32);
             this.lblusername.Name = "lblusername";
-            this.lblusername.Size = new System.Drawing.Size(64, 13);
+            this.lblusername.Size = new System.Drawing.Size(79, 16);
             this.lblusername.TabIndex = 1;
             this.lblusername.Text = "Kullanıcı Adı";
             // 
             // btnSifreyiDegistir
             // 
-            this.btnSifreyiDegistir.Location = new System.Drawing.Point(265, 238);
-            this.btnSifreyiDegistir.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSifreyiDegistir.Location = new System.Drawing.Point(353, 293);
             this.btnSifreyiDegistir.Name = "btnSifreyiDegistir";
-            this.btnSifreyiDegistir.Size = new System.Drawing.Size(56, 19);
+            this.btnSifreyiDegistir.Size = new System.Drawing.Size(75, 23);
             this.btnSifreyiDegistir.TabIndex = 2;
             this.btnSifreyiDegistir.Text = "Şifreyi Değiştir";
             this.btnSifreyiDegistir.UseVisualStyleBackColor = true;
@@ -68,35 +64,29 @@
             // lblYeniSifre
             // 
             this.lblYeniSifre.AutoSize = true;
-            this.lblYeniSifre.BackColor = System.Drawing.Color.Transparent;
-            this.lblYeniSifre.Location = new System.Drawing.Point(75, 106);
-            this.lblYeniSifre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblYeniSifre.Location = new System.Drawing.Point(100, 130);
             this.lblYeniSifre.Name = "lblYeniSifre";
-            this.lblYeniSifre.Size = new System.Drawing.Size(52, 13);
+            this.lblYeniSifre.Size = new System.Drawing.Size(64, 16);
             this.lblYeniSifre.TabIndex = 3;
             this.lblYeniSifre.Text = "Yeni Şifre";
             // 
             // txtYeniSifre
             // 
-            this.txtYeniSifre.Location = new System.Drawing.Point(77, 132);
-            this.txtYeniSifre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtYeniSifre.Location = new System.Drawing.Point(103, 162);
             this.txtYeniSifre.Name = "txtYeniSifre";
-            this.txtYeniSifre.Size = new System.Drawing.Size(76, 20);
+            this.txtYeniSifre.Size = new System.Drawing.Size(100, 22);
             this.txtYeniSifre.TabIndex = 4;
             // 
             // forgetpassword
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(540, 284);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.txtYeniSifre);
             this.Controls.Add(this.lblYeniSifre);
             this.Controls.Add(this.btnSifreyiDegistir);
             this.Controls.Add(this.lblusername);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "forgetpassword";
             this.Text = "Form1";
             this.ResumeLayout(false);

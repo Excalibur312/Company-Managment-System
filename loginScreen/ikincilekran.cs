@@ -6,28 +6,29 @@ namespace CompanyManagmentSystem
 {
     public partial class ikincilekran : Form
     {
-        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;"; 
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;"; 
         public string username;
-        public int authority;
+        private readonly int authority;
+        private readonly int department;
 
-        public ikincilekran(string username, int authority)
+        public ikincilekran(string username, int authority, int department)
         {
             InitializeComponent();
             this.username = username;
             this.authority = authority;
+            this.department = department;
             UpdateButtonBasedOnAuthority();
+            
         }
 
         public void UpdateButtonBasedOnAuthority()
         {
-            MessageBox.Show(authority.ToString());
-
             switch (authority)
             {
                 case 1:
                     // manager
-                    btnIseAlim11111.Visible = true;
-                    btnIseAlim11111.Enabled = true;
+                    btnIseAlim.Visible = true;
+                    btnIseAlim.Enabled = true;
                     btnYönetim.Visible = true;
                     btnYönetim.Enabled = true;
                     btnMailDcm.Visible = true;
@@ -35,39 +36,35 @@ namespace CompanyManagmentSystem
                     break;
                 case 2:
                     // employee
-                    btnIseAlim11111.Visible = false;
+                    btnIseAlim.Visible = false;
                     btnMailDcm.Visible = false;
                     btnYönetim.Visible=false;
                     btnYönetim.Enabled=false;
-                    btnIseAlim11111.Enabled = false;
+                    btnIseAlim.Enabled = false;
                     btnMailDcm.Enabled = false;
                     break;
                 case 3:
                     // stajyer
-                    btnIseAlim11111.Visible = false;
-                    btnIseAlim11111.Enabled = false;
+                    btnIseAlim.Visible = false;
+                    btnIseAlim.Enabled = false;
                     btnYönetim.Visible = false;
                     btnYönetim.Enabled = false;
                     btnMailDcm.Enabled= false;
                     btnMailDcm.Visible= false;
                     break;
                 default:
-                    btnIseAlim11111.Visible = true;
-                    btnIseAlim11111.Enabled = true;
+                    btnIseAlim.Visible = true;
+                    btnIseAlim.Enabled = true;
                     btnMailDcm .Visible = true;
                     btnMailDcm .Enabled = true;
                     break;
             }
         }
-
-        
-       
-
-        private void btnCikis_Click(object sender, EventArgs e)
+     
+        private void btnIseAlim_Click(object sender, EventArgs e)
         {
-            Form1 loginSceenForm = new Form1();
-            loginSceenForm.Show();
-            this.Hide();
+            IseAlim IseAlimSec = new IseAlim();
+            IseAlimSec.Show();
         }
 
         private void btnYönetim_Click(object sender, EventArgs e)
@@ -76,11 +73,10 @@ namespace CompanyManagmentSystem
             elemanYönetimiForm.Show();
         }
 
-        private void btnBilgilendirme_Click(object sender, EventArgs e)
+        private void btnİşListesi_Click(object sender, EventArgs e)
         {
-            Bilgilendirme bilgilendirmeForm = new Bilgilendirme();
-            bilgilendirmeForm.Show();
-            
+            İş_Listesi iş_Listesiform = new İş_Listesi(username, authority, department);
+            iş_Listesiform.Show();
         }
 
         private void btnMailYaz_Click(object sender, EventArgs e)
@@ -89,22 +85,11 @@ namespace CompanyManagmentSystem
             mailGönderForm.Show();
         }
 
-        private void btnMailOku_Click(object sender, EventArgs e)
+        private void btnCikis_Click(object sender, EventArgs e)
         {
-            MailleriOku mailleriokuForm = new MailleriOku();
-            mailleriokuForm.Show();
-        }
-
-        private void btnMailDcm_Click(object sender, EventArgs e)
-        {
-            MailleriDökümante maillerDökümanteForm = new MailleriDökümante();
-            maillerDökümanteForm.Show();
-        }
-
-        private void btnIseAlim_Click(object sender, EventArgs e)
-        {
-            IseAlim IseAlimSec = new IseAlim();
-            IseAlimSec.Show();
+            Form1 loginSceenForm = new Form1();
+            loginSceenForm.Show();
+            this.Hide();
         }
     }
    

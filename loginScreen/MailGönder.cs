@@ -7,7 +7,7 @@ namespace loginScreen
     public partial class MailGönder : Form
     {
         private readonly string username;
-        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         public MailGönder(string username)
         {
@@ -17,9 +17,9 @@ namespace loginScreen
             txtKullanici.Enabled = false;
             txtKullanici.Text = $"{username}";
 
-            cmbDepartman.Items.Add("Computer Engineering");  
-            cmbDepartman.Items.Add("Software Engineering");
-            cmbDepartman.Items.Add("Robotics Engineering");
+            cmbDepartman.Items.Add("Computer");  
+            cmbDepartman.Items.Add("Software");
+            cmbDepartman.Items.Add("Robotics");
             cmbDepartman.SelectedIndex = -1;
         }
 

@@ -226,7 +226,7 @@
             // 
             // btnGetir
             // 
-            this.btnGetir.Location = new System.Drawing.Point(146, 374);
+            this.btnGetir.Location = new System.Drawing.Point(129, 375);
             this.btnGetir.Name = "btnGetir";
             this.btnGetir.Size = new System.Drawing.Size(149, 23);
             this.btnGetir.TabIndex = 16;
@@ -265,7 +265,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(807, 488);
             this.Controls.Add(this.btnTabloIndir);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.btnSil);
