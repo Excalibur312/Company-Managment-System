@@ -47,7 +47,9 @@ namespace CompanyManagmentSystem
             }
         }
 
-        private void btnSifreyiDegistir_Click_1(object sender, EventArgs e)
+        
+
+        private void btnSifreyiDegistir_Click(object sender, EventArgs e)
         {
             string username = textBox1.Text;
             string newPassword = txtYeniSifre.Text;
