@@ -42,22 +42,23 @@
             this.lblŞifre = new System.Windows.Forms.Label();
             this.lblDepartman = new System.Windows.Forms.Label();
             this.lblYetkinlik = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxSurname = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.cmbAuthority = new System.Windows.Forms.ComboBox();
             this.cmbauthoritylevel = new System.Windows.Forms.ComboBox();
-            this.btnGüncelle = new System.Windows.Forms.Button();
-            this.btnGetir = new System.Windows.Forms.Button();
-            this.btnSil = new System.Windows.Forms.Button();
-            this.btnGeri = new System.Windows.Forms.Button();
-            this.btnTabloIndir = new System.Windows.Forms.Button();
+            this.btnG = new loginScreen.CustomBtn();
+            this.btnS = new loginScreen.CustomBtn();
+            this.customBtn1 = new loginScreen.CustomBtn();
+            this.customBtn2 = new loginScreen.CustomBtn();
+            this.customBtn3 = new loginScreen.CustomBtn();
             this.SuspendLayout();
             // 
             // listElemanlar
             // 
+            this.listElemanlar.BackColor = System.Drawing.Color.White;
             this.listElemanlar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.username,
             this.name,
@@ -111,6 +112,7 @@
             // lblKullanıcıAdı
             // 
             this.lblKullanıcıAdı.AutoSize = true;
+            this.lblKullanıcıAdı.BackColor = System.Drawing.Color.Transparent;
             this.lblKullanıcıAdı.Location = new System.Drawing.Point(34, 261);
             this.lblKullanıcıAdı.Name = "lblKullanıcıAdı";
             this.lblKullanıcıAdı.Size = new System.Drawing.Size(79, 16);
@@ -120,6 +122,7 @@
             // lblİsim
             // 
             this.lblİsim.AutoSize = true;
+            this.lblİsim.BackColor = System.Drawing.Color.Transparent;
             this.lblİsim.Location = new System.Drawing.Point(152, 261);
             this.lblİsim.Name = "lblİsim";
             this.lblİsim.Size = new System.Drawing.Size(31, 16);
@@ -129,6 +132,7 @@
             // lblSoyisim
             // 
             this.lblSoyisim.AutoSize = true;
+            this.lblSoyisim.BackColor = System.Drawing.Color.Transparent;
             this.lblSoyisim.Location = new System.Drawing.Point(258, 261);
             this.lblSoyisim.Name = "lblSoyisim";
             this.lblSoyisim.Size = new System.Drawing.Size(55, 16);
@@ -138,6 +142,7 @@
             // lblŞifre
             // 
             this.lblŞifre.AutoSize = true;
+            this.lblŞifre.BackColor = System.Drawing.Color.Transparent;
             this.lblŞifre.Location = new System.Drawing.Point(347, 261);
             this.lblŞifre.Name = "lblŞifre";
             this.lblŞifre.Size = new System.Drawing.Size(34, 16);
@@ -147,6 +152,7 @@
             // lblDepartman
             // 
             this.lblDepartman.AutoSize = true;
+            this.lblDepartman.BackColor = System.Drawing.Color.Transparent;
             this.lblDepartman.Location = new System.Drawing.Point(451, 261);
             this.lblDepartman.Name = "lblDepartman";
             this.lblDepartman.Size = new System.Drawing.Size(74, 16);
@@ -156,39 +162,40 @@
             // lblYetkinlik
             // 
             this.lblYetkinlik.AutoSize = true;
+            this.lblYetkinlik.BackColor = System.Drawing.Color.Transparent;
             this.lblYetkinlik.Location = new System.Drawing.Point(580, 261);
             this.lblYetkinlik.Name = "lblYetkinlik";
             this.lblYetkinlik.Size = new System.Drawing.Size(57, 16);
             this.lblYetkinlik.TabIndex = 6;
             this.lblYetkinlik.Text = "Yetkinlik";
             // 
-            // textBox1
+            // textBoxUsername
             // 
-            this.textBox1.Location = new System.Drawing.Point(28, 289);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 7;
+            this.textBoxUsername.Location = new System.Drawing.Point(28, 289);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(100, 22);
+            this.textBoxUsername.TabIndex = 7;
             // 
-            // textBox3
+            // textBoxPassword
             // 
-            this.textBox3.Location = new System.Drawing.Point(350, 289);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(84, 22);
-            this.textBox3.TabIndex = 9;
+            this.textBoxPassword.Location = new System.Drawing.Point(350, 289);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(84, 22);
+            this.textBoxPassword.TabIndex = 9;
             // 
-            // textBox4
+            // textBoxSurname
             // 
-            this.textBox4.Location = new System.Drawing.Point(239, 289);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(86, 22);
-            this.textBox4.TabIndex = 10;
+            this.textBoxSurname.Location = new System.Drawing.Point(239, 289);
+            this.textBoxSurname.Name = "textBoxSurname";
+            this.textBoxSurname.Size = new System.Drawing.Size(86, 22);
+            this.textBoxSurname.TabIndex = 10;
             // 
-            // textBox5
+            // textBoxName
             // 
-            this.textBox5.Location = new System.Drawing.Point(146, 289);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(70, 22);
-            this.textBox5.TabIndex = 11;
+            this.textBoxName.Location = new System.Drawing.Point(146, 289);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(70, 22);
+            this.textBoxName.TabIndex = 11;
             // 
             // cmbDepartment
             // 
@@ -215,69 +222,119 @@
             this.cmbauthoritylevel.TabIndex = 14;
             this.cmbauthoritylevel.Visible = false;
             // 
-            // btnGüncelle
+            // btnG
             // 
-            this.btnGüncelle.Location = new System.Drawing.Point(37, 403);
-            this.btnGüncelle.Name = "btnGüncelle";
-            this.btnGüncelle.Size = new System.Drawing.Size(146, 25);
-            this.btnGüncelle.TabIndex = 15;
-            this.btnGüncelle.Text = "Güncelle";
-            this.btnGüncelle.UseVisualStyleBackColor = true;
+            this.btnG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnG.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnG.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnG.BorderRadius = 40;
+            this.btnG.BorderSize = 0;
+            this.btnG.FlatAppearance.BorderSize = 0;
+            this.btnG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnG.ForeColor = System.Drawing.Color.White;
+            this.btnG.Location = new System.Drawing.Point(51, 404);
+            this.btnG.Name = "btnG";
+            this.btnG.Size = new System.Drawing.Size(150, 40);
+            this.btnG.TabIndex = 20;
+            this.btnG.Text = "Güncelle";
+            this.btnG.TextdColor = System.Drawing.Color.White;
+            this.btnG.UseVisualStyleBackColor = false;
+            this.btnG.Click += new System.EventHandler(this.Güncelle_Click);
             // 
-            // btnGetir
+            // btnS
             // 
-            this.btnGetir.Location = new System.Drawing.Point(129, 375);
-            this.btnGetir.Name = "btnGetir";
-            this.btnGetir.Size = new System.Drawing.Size(149, 23);
-            this.btnGetir.TabIndex = 16;
-            this.btnGetir.Text = "Kullanıcıyı Getir";
-            this.btnGetir.UseVisualStyleBackColor = true;
+            this.btnS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnS.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnS.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnS.BorderRadius = 40;
+            this.btnS.BorderSize = 0;
+            this.btnS.FlatAppearance.BorderSize = 0;
+            this.btnS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnS.ForeColor = System.Drawing.Color.White;
+            this.btnS.Location = new System.Drawing.Point(231, 403);
+            this.btnS.Name = "btnS";
+            this.btnS.Size = new System.Drawing.Size(150, 40);
+            this.btnS.TabIndex = 21;
+            this.btnS.Text = "Sil";
+            this.btnS.TextdColor = System.Drawing.Color.White;
+            this.btnS.UseVisualStyleBackColor = false;
+            this.btnS.Click += new System.EventHandler(this.btnS_Click);
             // 
-            // btnSil
+            // customBtn1
             // 
-            this.btnSil.Location = new System.Drawing.Point(229, 404);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(107, 23);
-            this.btnSil.TabIndex = 17;
-            this.btnSil.Text = "Sil";
-            this.btnSil.UseVisualStyleBackColor = true;
+            this.customBtn1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.customBtn1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.customBtn1.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.customBtn1.BorderRadius = 40;
+            this.customBtn1.BorderSize = 0;
+            this.customBtn1.FlatAppearance.BorderSize = 0;
+            this.customBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customBtn1.ForeColor = System.Drawing.Color.White;
+            this.customBtn1.Location = new System.Drawing.Point(132, 328);
+            this.customBtn1.Name = "customBtn1";
+            this.customBtn1.Size = new System.Drawing.Size(150, 40);
+            this.customBtn1.TabIndex = 22;
+            this.customBtn1.Text = "Kullanıcıyı Getir";
+            this.customBtn1.TextdColor = System.Drawing.Color.White;
+            this.customBtn1.UseVisualStyleBackColor = false;
+            this.customBtn1.Click += new System.EventHandler(this.customBtn1_Click);
             // 
-            // btnGeri
+            // customBtn2
             // 
-            this.btnGeri.Location = new System.Drawing.Point(605, 403);
-            this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(99, 23);
-            this.btnGeri.TabIndex = 18;
-            this.btnGeri.Text = "Geri";
-            this.btnGeri.UseVisualStyleBackColor = true;
-            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            this.customBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.customBtn2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.customBtn2.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.customBtn2.BorderRadius = 40;
+            this.customBtn2.BorderSize = 0;
+            this.customBtn2.FlatAppearance.BorderSize = 0;
+            this.customBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customBtn2.ForeColor = System.Drawing.Color.White;
+            this.customBtn2.Location = new System.Drawing.Point(583, 403);
+            this.customBtn2.Name = "customBtn2";
+            this.customBtn2.Size = new System.Drawing.Size(150, 40);
+            this.customBtn2.TabIndex = 23;
+            this.customBtn2.Text = "Getir";
+            this.customBtn2.TextdColor = System.Drawing.Color.White;
+            this.customBtn2.UseVisualStyleBackColor = false;
+            this.customBtn2.Click += new System.EventHandler(this.customBtn2_Click);
             // 
-            // btnTabloIndir
+            // customBtn3
             // 
-            this.btnTabloIndir.Location = new System.Drawing.Point(400, 403);
-            this.btnTabloIndir.Name = "btnTabloIndir";
-            this.btnTabloIndir.Size = new System.Drawing.Size(151, 23);
-            this.btnTabloIndir.TabIndex = 19;
-            this.btnTabloIndir.Text = "Bilgileri Dosyalaştır";
-            this.btnTabloIndir.UseVisualStyleBackColor = true;
+            this.customBtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.customBtn3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.customBtn3.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.customBtn3.BorderRadius = 40;
+            this.customBtn3.BorderSize = 0;
+            this.customBtn3.FlatAppearance.BorderSize = 0;
+            this.customBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customBtn3.ForeColor = System.Drawing.Color.White;
+            this.customBtn3.Location = new System.Drawing.Point(416, 403);
+            this.customBtn3.Name = "customBtn3";
+            this.customBtn3.Size = new System.Drawing.Size(150, 40);
+            this.customBtn3.TabIndex = 24;
+            this.customBtn3.Text = "Bilgileri Dosyalaştır";
+            this.customBtn3.TextdColor = System.Drawing.Color.White;
+            this.customBtn3.UseVisualStyleBackColor = false;
             // 
             // ElemanYönetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(807, 488);
-            this.Controls.Add(this.btnTabloIndir);
-            this.Controls.Add(this.btnGeri);
-            this.Controls.Add(this.btnSil);
-            this.Controls.Add(this.btnGetir);
-            this.Controls.Add(this.btnGüncelle);
+            this.Controls.Add(this.customBtn3);
+            this.Controls.Add(this.customBtn2);
+            this.Controls.Add(this.customBtn1);
+            this.Controls.Add(this.btnS);
+            this.Controls.Add(this.btnG);
             this.Controls.Add(this.cmbauthoritylevel);
             this.Controls.Add(this.cmbAuthority);
             this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxSurname);
+            this.Controls.Add(this.textBoxPassword);
+            this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.lblYetkinlik);
             this.Controls.Add(this.lblDepartman);
             this.Controls.Add(this.lblŞifre);
@@ -308,17 +365,17 @@
         private System.Windows.Forms.Label lblŞifre;
         private System.Windows.Forms.Label lblDepartman;
         private System.Windows.Forms.Label lblYetkinlik;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxSurname;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.ComboBox cmbAuthority;
         private System.Windows.Forms.ComboBox cmbauthoritylevel;
-        private System.Windows.Forms.Button btnGüncelle;
-        private System.Windows.Forms.Button btnGetir;
-        private System.Windows.Forms.Button btnSil;
-        private System.Windows.Forms.Button btnGeri;
-        private System.Windows.Forms.Button btnTabloIndir;
+        private CustomBtn btnG;
+        private CustomBtn btnS;
+        private CustomBtn customBtn1;
+        private CustomBtn customBtn2;
+        private CustomBtn customBtn3;
     }
 }
