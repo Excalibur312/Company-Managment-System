@@ -34,7 +34,12 @@
             this.cmbAlıcı = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lUserName = new System.Windows.Forms.Label();
+            this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Kişi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.User_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Departman = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Konu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -78,6 +83,12 @@
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.User_Name,
+            this.Kişi,
+            this.Departman,
+            this.Konu,
+            this.Mail});
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(163, 208);
             this.listView1.Name = "listView1";
@@ -94,16 +105,32 @@
             this.cmbDepartment.TabIndex = 18;
             this.cmbDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbDepartment_SelectedIndexChanged);
             // 
-            // label2
+            // lUserName
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(597, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Kullanıcı";
+            this.lUserName.AutoSize = true;
+            this.lUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.lUserName.ForeColor = System.Drawing.Color.White;
+            this.lUserName.Location = new System.Drawing.Point(597, 20);
+            this.lUserName.Name = "lUserName";
+            this.lUserName.Size = new System.Drawing.Size(56, 16);
+            this.lUserName.TabIndex = 19;
+            this.lUserName.Text = "Kullanıcı";
+            // 
+            // Mail
+            // 
+            this.Mail.DisplayIndex = 0;
+            // 
+            // User_Name
+            // 
+            this.User_Name.DisplayIndex = 2;
+            // 
+            // Departman
+            // 
+            this.Departman.DisplayIndex = 3;
+            // 
+            // Konu
+            // 
+            this.Konu.DisplayIndex = 4;
             // 
             // MailleriOku
             // 
@@ -112,7 +139,7 @@
             this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lUserName);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.cmbAlıcı);
@@ -135,6 +162,11 @@
         private System.Windows.Forms.ComboBox cmbAlıcı;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ComboBox cmbDepartment;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lUserName;
+        private System.Windows.Forms.ColumnHeader Mail;
+        private System.Windows.Forms.ColumnHeader Kişi;
+        private System.Windows.Forms.ColumnHeader User_Name;
+        private System.Windows.Forms.ColumnHeader Departman;
+        private System.Windows.Forms.ColumnHeader Konu;
     }
 }

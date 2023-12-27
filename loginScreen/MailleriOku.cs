@@ -9,6 +9,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace loginScreen
@@ -29,7 +30,13 @@ namespace loginScreen
             this.authority = authority;
             this.department = department;
 
+            this.Load += MailleriOku_Load;
+
+
+            cmbDepartment.SelectedIndexChanged += cmbDepartment_SelectedIndexChanged;
             cmbAlıcı.SelectedIndexChanged += cmbAlıcı_SelectedIndexChanged;
+
+
 
         }
 
@@ -56,15 +63,15 @@ namespace loginScreen
                             string department = reader["department"].ToString();
 
                             // Department değerlerini karşılaştır
-                            if (department == "computer")
+                            if (department == "Computer")
                             {
                                 numberD = 1;
                             }
-                            else if (department == "software")
+                            else if (department == "Software")
                             {
                                 numberD = 2;
                             }
-                            else if (department == "robotic")
+                            else if (department == "Robotic")
                             {
                                 numberD = 3;
                             }
@@ -82,27 +89,35 @@ namespace loginScreen
             }
         }
 
+        // ComboBox ve ListView nesnelerini temizleyen metot
+        private void ResetControls()
+        {
+            // ComboBox'ı temizleme
+            cmbDepartment.Items.Clear();
+            cmbAlıcı.Items.Clear();
+
+            // ListView'i temizleme
+            listView1.Items.Clear();
+        }
+
+        public void AddOnlyUser()
+        {
+            cmbDepartment.Items.Add(this.department);
+            cmbAlıcı.Items.Add(this.username);
+        }
+
+        public void LabelUserName()
+        {
+            lUserName.Text = "Kullanıcı: " + this.username;
+        }
+
+
         public void AddDepartments()
         {
             // SQL sorgusu
-            string query = "SELECT department FROM UserTable"; // Tablo ve sütun adlarını değiştirmelisiniz
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        // ComboBox'a verileri ekleme
-                        cmbDepartment.Items.Add(reader["depatrment"].ToString()); // Sütun adını değiştirmelisiniz
-                    }
-
-                    connection.Close();
-                }
-            }
+            cmbDepartment.Items.Add("Computer");
+            cmbDepartment.Items.Add("Software");
+            cmbDepartment.Items.Add("Robotic");
         }
 
         public void AddDepartmentComputer()
@@ -173,13 +188,12 @@ namespace loginScreen
             }
         }
 
-        public void ChangeComboBox() 
-        { 
-
-        }
-
         private void MailleriOku_Load(object sender, EventArgs e)
         {
+            LabelUserName();
+            DepartmentsByUsername(username);
+            ResetControls();
+
             switch (authority)
             {
                 case 1:
@@ -195,27 +209,79 @@ namespace loginScreen
                     {
                         if(numberD == 1)
                         {
+                            // ComboBox'a varsayılan metni ekleyin
+                            cmbDepartment.Items.Add("Computer");
+
+                            // Varsayılan metni seçilemez yapmak için
+                            cmbDepartment.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                            cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
+
                             AddDepartmentComputer();
                             MessageBox.Show("You are Manager but access is restricted");
                         }
                         else if (numberD == 2)
                         {
+                            // ComboBox'a varsayılan metni ekleyin
+                            cmbDepartment.Items.Add("Software");
+
+                            // Varsayılan metni seçilemez yapmak için
+                            cmbDepartment.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                            cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
+
                             AddDepartmentSoftware();
                             MessageBox.Show("You are Manager but access is restricted");
                         }
                         else
                         {
+                            // ComboBox'a varsayılan metni ekleyin
+                            cmbDepartment.Items.Add("Robotic");
+
+                            // Varsayılan metni seçilemez yapmak için
+                            cmbDepartment.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                            cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
+
                             AddDepartmentRobotic();
                             MessageBox.Show("You are Manager but access is restricted");
                         }
                     }
                     else
                     {
+                        AddOnlyUser();
+
+                        // ComboBox'a varsayılan metni ekleyin
+                        cmbDepartment.Items.Add(this.department);
+
+                        // Varsayılan metni seçilemez yapmak için
+                        cmbDepartment.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                        cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
+
+                        // ComboBox'a varsayılan metni ekleyin
+                        cmbAlıcı.Items.Add(this.username);
+
+                        // Varsayılan metni seçilemez yapmak için
+                        cmbAlıcı.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                        cmbAlıcı.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
+
                         MessageBox.Show("Your level is very low (inside)");
                     }
                     break;
 
                 case 3:
+
+                    AddOnlyUser();
+
+                    // ComboBox'a varsayılan metni ekleyin
+                    cmbDepartment.Items.Add(this.department);
+
+                    // Varsayılan metni seçilemez yapmak için
+                    cmbDepartment.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                    cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
+                                                                          // ComboBox'a varsayılan metni ekleyin
+                    cmbAlıcı.Items.Add(this.username);
+
+                    // Varsayılan metni seçilemez yapmak için
+                    cmbAlıcı.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
+                    cmbAlıcı.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
 
                     MessageBox.Show("Your level is very low");
 
@@ -259,66 +325,45 @@ namespace loginScreen
 
         private void cmbAlıcı_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedItem = cmbAlıcı.SelectedItem.ToString();
+            string selectedUsername = cmbAlıcı.SelectedItem.ToString();
 
-            // ListView'i temizleme
-            listViewEmployees.Items.Clear();
+            string query = "SELECT Username, Alici, Departman, Baslik, GönderilenMail FROM Mail WHERE Username = @Username"; // Tablo ve sütun adlarınıza göre değiştirin
 
-            // Seçili departmana göre ListView'i güncelleme
-            foreach (ListViewItem item in listViewEmployees.Items)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                if (item.SubItems[2].Text == selectedItem)
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                // Parametre ekleyin
+                cmd.Parameters.AddWithValue("@Username", selectedUsername);
+
+                // Veritabanı bağlantısını açın
+                connection.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    listViewEmployees.Items.Add((ListViewItem)item.Clone());
+                    // ListView temizle
+                    listView1.Items.Clear();
+
+                    // Veri okunduğu sürece işlem yapın
+                    while (reader.Read())
+                    {
+                        // Okunan verileri alın
+                        
+                        string userName = reader["Username"].ToString();
+                        string alıcı = reader["Alici"].ToString();
+                        string departman = reader["Departman"].ToString();
+                        string baslık = reader["Baslik"].ToString();
+                        string message = reader["GönderilenMail"].ToString();
+
+                        // ListView'e ekleme yapın
+                        ListViewItem item = new ListViewItem(new[] { userName, alıcı, departman, baslık, message });
+                        listView1.Items.Add(item);
+                    }
                 }
+
+                connection.Close();
             }
         }
     }
 }
-
-
-/*
- 
-private void FetchEmailsAndMessages(string username)
-{
-    try
-    {
-        using (SqlConnection sqlConnection = new SqlConnection("Your_Connection_String"))
-        {
-            sqlConnection.Open();
-            string query = "SELECT Email, Message FROM YourTableName WHERE Username = @Username";
-            
-            SqlCommand cmd = new SqlCommand(query, sqlConnection);
-            cmd.Parameters.AddWithValue("@Username", username);
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                ListViewItem item = new ListViewItem(dr["Email"].ToString());
-                item.SubItems.Add(dr["Message"].ToString());
-                listView1.Items.Add(item);
-            }
-        }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show(ex.Message);
-    }
-}
-
-/////
-///////
-///
-
-private void YourButton_Click(object sender, EventArgs e)
-{
-    string username = "desired_username"; // İlgili kullanıcı adını burada belirtin
-
-    // Belirtilen kullanıcı adına göre e-posta ve mesajları getir
-    FetchEmailsAndMessages(username);
-}
-
-*/
-
-
-
