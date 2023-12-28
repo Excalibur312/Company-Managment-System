@@ -6,7 +6,7 @@ namespace CompanyManagmentSystem
 {
     public partial class ikincilekran : Form
     {
-        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;"; 
+        public string connectionString = "Data Source=25.61.180.90;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;"; 
         public string username;
         private readonly int authority;
         private readonly int department;
@@ -112,6 +112,12 @@ namespace CompanyManagmentSystem
         {
             MailleriOku mailokuform = new MailleriOku(username, authority,department);
             mailokuform.Show();
+        }
+
+        private void btnGizliSoruCevap_Click(object sender, EventArgs e)
+        {
+            gizliSoru gizliSoruform = new gizliSoru(username);
+            gizliSoruform.Show();
         }
     }
    

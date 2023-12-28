@@ -36,6 +36,7 @@
             this.btnİşListesi = new loginScreen.CustomBtn();
             this.btnBilgilendirme = new loginScreen.CustomBtn();
             this.btnCikis = new loginScreen.CustomBtn();
+            this.btnGizliSoruCevap = new loginScreen.CustomBtn();
             this.SuspendLayout();
             // 
             // btnIseAlim
@@ -190,6 +191,25 @@
             this.btnCikis.UseVisualStyleBackColor = false;
             this.btnCikis.Click += new System.EventHandler(this.btnCikis_Click);
             // 
+            // btnGizliSoruCevap
+            // 
+            this.btnGizliSoruCevap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGizliSoruCevap.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGizliSoruCevap.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnGizliSoruCevap.BorderRadius = 40;
+            this.btnGizliSoruCevap.BorderSize = 0;
+            this.btnGizliSoruCevap.FlatAppearance.BorderSize = 0;
+            this.btnGizliSoruCevap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGizliSoruCevap.ForeColor = System.Drawing.Color.White;
+            this.btnGizliSoruCevap.Location = new System.Drawing.Point(638, 58);
+            this.btnGizliSoruCevap.Name = "btnGizliSoruCevap";
+            this.btnGizliSoruCevap.Size = new System.Drawing.Size(150, 40);
+            this.btnGizliSoruCevap.TabIndex = 17;
+            this.btnGizliSoruCevap.Text = "Gizli Soru Cevap Belirle";
+            this.btnGizliSoruCevap.TextdColor = System.Drawing.Color.White;
+            this.btnGizliSoruCevap.UseVisualStyleBackColor = false;
+            this.btnGizliSoruCevap.Click += new System.EventHandler(this.btnGizliSoruCevap_Click);
+            // 
             // ikincilekran
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -197,6 +217,7 @@
             this.BackgroundImage = global::loginScreen.Properties.Resources.logo__Kurtar_Çalışma_Yüzeyi_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGizliSoruCevap);
             this.Controls.Add(this.btnCikis);
             this.Controls.Add(this.btnBilgilendirme);
             this.Controls.Add(this.btnİşListesi);
@@ -221,6 +242,7 @@
         private loginScreen.CustomBtn btnİşListesi;
         private loginScreen.CustomBtn btnBilgilendirme;
         private loginScreen.CustomBtn btnCikis;
+        private loginScreen.CustomBtn btnGizliSoruCevap;
     }
 }
 
