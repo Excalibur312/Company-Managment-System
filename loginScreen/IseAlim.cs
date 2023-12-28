@@ -97,7 +97,7 @@ namespace loginScreen
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO UserTable (name, surname, username, password, department, authority, authoritylevel,departmentlevel) VALUES (@name, @surname, @username, @password, @department, @authority, @authoritylevel,@departmentlevel)";
+                    string query = "INSERT INTO UserTable (name, surname, username, password, department, authority, authoritylevel,departmentlevel,gizlisoru) VALUES (@name, @surname, @username, @password, @department, @authority, @authoritylevel,@departmentlevel,@gizlisoru)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@name", textBoxName.Text);
@@ -108,6 +108,7 @@ namespace loginScreen
                     command.Parameters.AddWithValue("@authority", comboBoxAuthority.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@authoritylevel", comboBoxAuthorityLevel.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@departmentlevel", comboBoxDepartmentLevel.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@gizlisoru", txtGizliSoru.Text);
                     int rowsAffected = command.ExecuteNonQuery();
 
                     textBoxName.Text = "";

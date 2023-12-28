@@ -1,39 +1,87 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.IO;
+using System.Collections.Generic;
 
 namespace loginScreen
 {
     public partial class ElemanYönetimi : Form
     {
-        public string connectionString = "Data Source=25.61.180.90;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
-
-        private SqlConnection connection;
-        private SqlCommand command;
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public List<string> comboBoxAuthorityItems = new List<string> { "Manager", "Employee", "Intern" };
+        public List<string> comboBoxDepartmentsItems = new List<string> { "Computer", "Robotics", "Software" };
+        public List<string> comboBoxAuthoirtItems = new List<string> { "1", "2", "3" };
+        public List<string> comboBoxDepartmentsLevelItems = new List<string> { "1", "2", "3" };
         public ElemanYönetimi()
         {
             InitializeComponent();
             Listeleme();
+            cmbAuthority.DataSource = comboBoxAuthorityItems;
+            cmbDepartment.DataSource = comboBoxDepartmentsItems;
+          
 
-            customBtn1.Click += customBtn1_Click;
+            // Do not set DataSource for comboBoxAuthorityLevel
+            cmbauthoritylevel.Items.AddRange(comboBoxAuthoirtItems.ToArray());
+            cmbDepartmanlevel.Items.AddRange(comboBoxDepartmentsLevelItems.ToArray());
 
-            cmbDepartment.Items.Add("");
-            cmbDepartment.Items.Add("Computer");
-            cmbDepartment.Items.Add("Software");
-            cmbDepartment.Items.Add("Robotic");
-
-            cmbAuthority.Items.Add("");
-            cmbAuthority.Items.Add("Manager");
-            cmbAuthority.Items.Add("Intern");
-            cmbAuthority.Items.Add("Employee");
-
+            // Add event handler for authority selection change
+            cmbAuthority.SelectedIndexChanged += comboBoxAuthority_SelectedIndexChanged;
+            cmbDepartment.SelectedIndexChanged += comboBoxDepartment_SelectedIndexChanged;
         }
+        private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = cmbDepartment.SelectedItem;
+
+            cmbDepartmanlevel.Items.Clear();
+
+            switch (selectedItem)
+            {
+                case "Computer":
+                    cmbDepartmanlevel.Items.AddRange(new object[] { "1" });
+                    break;
+                case "Software":
+                    cmbDepartmanlevel.Items.AddRange(new object[] { "2" });
+                    break;
+                case "Robotics":
+                    cmbDepartmanlevel.Items.AddRange(new object[] { "3" });
+                    break;
+                default:
+                    break;
+            }
+
+            if (cmbDepartmanlevel.Items.Count > 0)
+                cmbDepartmanlevel.SelectedIndex = 0;
+        }
+
+        private void comboBoxAuthority_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = cmbAuthority.SelectedItem;
+
+            cmbauthoritylevel.Items.Clear();
+
+            switch (selectedItem)
+            {
+                case "Manager":
+                    cmbauthoritylevel.Items.AddRange(new object[] { "1" });
+                    break;
+                case "Employee":
+                    cmbauthoritylevel.Items.AddRange(new object[] { "2" });
+                    break;
+                case "Intern":
+                    cmbauthoritylevel.Items.AddRange(new object[] { "3" });
+                    break;
+                default:
+                    break;
+            }
+
+            if (cmbauthoritylevel.Items.Count > 0)
+                cmbauthoritylevel.SelectedIndex = 0;
+        }
+
+
         public void Listeleme()
         {
             string query = "SELECT * FROM UserTable";
@@ -58,6 +106,7 @@ namespace loginScreen
                                     item.SubItems.Add(reader["department"].ToString());
                                     item.SubItems.Add(reader["authority"].ToString());
                                     item.SubItems.Add(reader["authoritylevel"].ToString());
+                                    item.SubItems.Add(reader["gizlisoru"].ToString());
 
                                     listElemanlar.Items.Add(item);
                                 }
@@ -83,191 +132,146 @@ namespace loginScreen
 
         private void Güncelle_Click(object sender, EventArgs e)
         {
-            string selectQuery = "SELECT * FROM UserTable WHERE username = @username";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-
-                using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+                if (listElemanlar.SelectedItems.Count > 0)
                 {
-                    selectCommand.Parameters.AddWithValue("@username", textBoxUsername.Text);
+                    string selectedUsername = listElemanlar.SelectedItems[0].Text;
+
+                    if (string.IsNullOrWhiteSpace(textBoxName.Text) ||
+                        string.IsNullOrWhiteSpace(textBoxSurname.Text) ||
+                        string.IsNullOrWhiteSpace(textBoxUsername.Text) ||
+                        string.IsNullOrWhiteSpace(textBoxPassword.Text) ||
+                        string.IsNullOrWhiteSpace(cmbDepartment.Text) ||
+                        string.IsNullOrWhiteSpace(cmbAuthority.Text) ||
+                        string.IsNullOrWhiteSpace(txtGizliSoru.Text))
+                        
+
+                    {
+                        MessageBox.Show("Lütfen tüm alanları doldurun.");
+                        return;
+                    }
 
                     try
                     {
                         connection.Open();
-                        SqlDataReader reader = selectCommand.ExecuteReader();
+                        SqlCommand command = new SqlCommand("UPDATE UserTable SET name=@name, surname=@surname, username=@username, password=@password, department=@department,departmentlevel=@departmentlevel, authority=@authority, authoritylevel=@authoritylevel, gizlisoru=@gizlisoru WHERE username=@selectedUsername", connection);
+                        command.Parameters.AddWithValue("@name", textBoxName.Text);
+                        command.Parameters.AddWithValue("@surname", textBoxSurname.Text);
+                        command.Parameters.AddWithValue("@username", textBoxUsername.Text);
+                        command.Parameters.AddWithValue("@password", textBoxPassword.Text);
+                        command.Parameters.AddWithValue("@department", cmbDepartment.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@departmentlevel", cmbDepartmanlevel.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@authority", cmbAuthority.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@authoritylevel", cmbauthoritylevel.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@gizlisoru", txtGizliSoru.Text);
+                        command.Parameters.AddWithValue("@selectedUsername", selectedUsername);
+                       
 
-                        if (reader.Read())
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
                         {
-                            // Kullanıcı bulunduysa, sütun değerlerini al
-                            string name = reader["name"].ToString(); // Örnek olarak "name" sütunu alınıyor
-                            string surname = reader["surname"].ToString(); // Örnek olarak "surname" sütunu alınıyor
-                            string username = reader["username"].ToString();
-                            string password = reader["password"].ToString();
-                            string department = reader["department"].ToString();
-                            string authority = reader["authority"].ToString();
-
-                            reader.Close();
-
-
-                            // Yeni değerlerle güncelleme sorgusu oluştur
-                            string updateQuery = "UPDATE UserTable SET name = @newName, surname = @newSurname, username = @newUsername, password = @newPassword, department = @newDepartment, authority = @newAuthority WHERE username = @username";
-
-                            using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
-                            {
-                                updateCommand.Parameters.AddWithValue("@username", username);
-
-                                updateCommand.Parameters.AddWithValue("@newName", textBoxName.Text); // Yeni isim değeri
-                                updateCommand.Parameters.AddWithValue("@newSurname", textBoxSurname.Text); // Yeni soyisim değeri
-                                updateCommand.Parameters.AddWithValue("@newUsername", textBoxUsername.Text);
-                                updateCommand.Parameters.AddWithValue("@newPassword", textBoxPassword.Text);
-                                updateCommand.Parameters.AddWithValue("@newDepartment", cmbDepartment.Text);
-                                updateCommand.Parameters.AddWithValue("@newAuthority", cmbAuthority.Text);
-
-
-                                int rowsAffected = updateCommand.ExecuteNonQuery();
-
-                                if (rowsAffected > 0)
-                                {
-                                    MessageBox.Show("Veritabanı başarıyla güncellendi.");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Güncelleme işlemi başarısız oldu.");
-                                }
-                            }
+                            MessageBox.Show("Veritabanına Güncellendi.");
+                            Listeleme();
                         }
                         else
                         {
-                            MessageBox.Show("Kullanıcı bulunamadı.");
+                            MessageBox.Show("Güncelleme işlemi başarısız oldu.");
                         }
                     }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Hata: " + ex.Message);
                     }
                     finally
                     {
                         connection.Close();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Lütfen güncellenecek elemanı seçin.");
+                }
             }
-            Listeleme();
         }
 
         private void customBtn1_Click(object sender, EventArgs e)
         {
-            // ListView'da bir sütun seçili mi kontrol et
-            if (listElemanlar.SelectedItems.Count > 0)
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                // Seçilen sütunun verilerini al
-                ListViewItem selectedItem = listElemanlar.SelectedItems[0];
+                if (listElemanlar.SelectedItems.Count > 0)
+                {
+                    string selectedUsername = listElemanlar.SelectedItems[0].Text;
 
-                // Verileri TextBox ve ComboBox'lara yerleştir
-                textBoxUsername.Text = selectedItem.SubItems[0].Text;
-                textBoxName.Text = selectedItem.SubItems[1].Text;
-                textBoxSurname.Text = selectedItem.SubItems[2].Text;
-                textBoxPassword.Text = selectedItem.SubItems[3].Text;
+                    try
+                    {
+                        connection.Open();
+                        string query = "SELECT * FROM UserTable WHERE username=@username";
 
+                        SqlCommand cmd = new SqlCommand(query, connection);
+                        cmd.Parameters.AddWithValue("@username", selectedUsername);
 
-                // ComboBox'a seçili departmanı yerleştir
-                string depart1 = selectedItem.SubItems[4].Text;
-                string depart2 = selectedItem.SubItems[5].Text;
-                string depart3 = selectedItem.SubItems[6].Text;
-
-                cmbDepartment.SelectedItem = depart1;
-                cmbAuthority.SelectedItem = depart2;
-                cmbauthoritylevel.SelectedItem = depart3;
-            }
-            else
-            {
-                // Eğer ListView'da bir sütun seçilmediyse kullanıcıya bilgi ver
-                MessageBox.Show("Lütfen bir sütun seçin.");
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            textBoxUsername.Text = dr["username"].ToString();
+                            textBoxName.Text = dr["name"].ToString();
+                            textBoxSurname.Text = dr["surname"].ToString();
+                            textBoxPassword.Text = dr["password"].ToString();
+                            txtGizliSoru.Text = dr["gizlisoru"].ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Hata: " + ex.Message);
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen eleman seçin.");
+                }
             }
         }
 
         private void btnS_Click(object sender, EventArgs e)
         {
-
-
-
-            string selectQuery = "SELECT * FROM UserTable WHERE username = @username";
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-
-                using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
+                foreach (ListViewItem item in listElemanlar.Items)
                 {
-
-                    if (listElemanlar.SelectedItems.Count > 0)
+                    if (item.Selected)
                     {
-                        string selectedUsername = listElemanlar.SelectedItems[0].SubItems[0].Text; // Seçilen öğenin 0'ıncı alt öğesinin metnini al
-
-                        selectCommand.Parameters.AddWithValue("@username", selectedUsername);
-
+                        string selectedUsername = item.Text;
+                        SqlCommand sqlCommand = new SqlCommand("DELETE FROM UserTable WHERE username=@username", connection);
+                        sqlCommand.Parameters.AddWithValue("@username", selectedUsername);
                         try
                         {
                             connection.Open();
-                            SqlDataReader reader = selectCommand.ExecuteReader();
-
-                            if (reader.Read())
+                            int rowsAffected = sqlCommand.ExecuteNonQuery();
+                            if (rowsAffected > 0)
                             {
-                                // Kullanıcı bulunduysa, sütun değerlerini al
-                                string name = reader["name"].ToString(); // Örnek olarak "name" sütunu alınıyor
-                                string surname = reader["surname"].ToString(); // Örnek olarak "surname" sütunu alınıyor
-                                string username = reader["username"].ToString();
-                                string password = reader["password"].ToString();
-                                string department = reader["department"].ToString();
-                                string authority = reader["authority"].ToString();
-
-                                reader.Close();
-
-                                // Yeni değerlerle güncelleme sorgusu oluştur
-                                string deleteQuery = "DELETE FROM UserTable WHERE username = @username";
-
-                                using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
-                                {
-                                    deleteCommand.Parameters.AddWithValue("@username", username);
-
-                                    try
-                                    {
-                                        int rowsAffected = deleteCommand.ExecuteNonQuery();
-
-                                        if (rowsAffected > 0)
-                                        {
-                                            MessageBox.Show("Veritabanından kullanıcı başarıyla silindi.");
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Silinecek kullanıcı bulunamadı veya silme işlemi başarısız oldu.");
-                                        }
-                                    }
-                                    catch (SqlException ex)
-                                    {
-                                        MessageBox.Show(ex.Message);
-                                    }
-                                    finally
-                                    {
-                                        connection.Close();
-                                    }
-                                }
+                                MessageBox.Show("Veritabanından silindi.");
+                                Listeleme();
                             }
                             else
                             {
-                                MessageBox.Show("Kullanıcı bulunamadı.");
+                                MessageBox.Show("Silme işlemi başarısız oldu.");
                             }
                         }
                         catch (SqlException ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            MessageBox.Show("Hata: " + ex.Message);
                         }
                         finally
                         {
                             connection.Close();
                         }
                     }
-                    connection.Close();
-                    Listeleme();
                 }
             }
         }
@@ -276,6 +280,78 @@ namespace loginScreen
         {
             this.Hide();
         }
-    }
 
+        private void customBtn3_Click(object sender, EventArgs e)
+        {
+            PdfDokumente();
+        }
+
+        public void PdfDokumente()
+        {
+            try
+            {
+                // Kullanıcıya kaydetme konumu için iletişim kutusu göster
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "PDF Dosyası|*.pdf";
+                saveFileDialog1.Title = "PDF Olarak Kaydet";
+                saveFileDialog1.ShowDialog();
+
+                if (saveFileDialog1.FileName != "")
+                {
+                    string pdfFileName = saveFileDialog1.FileName;
+                    Document pdfDoc = new Document(PageSize.A4);
+
+                    // Başka bir font dosyası kullanarak özel bir font oluşturun
+                    BaseFont baseFont = BaseFont.CreateFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                    Font font = new Font(baseFont);
+
+                    PdfWriter.GetInstance(pdfDoc, new FileStream(pdfFileName, FileMode.Create));
+                    pdfDoc.Open();
+
+                    PdfPTable pdfTable = new PdfPTable(7);
+                    pdfTable.WidthPercentage = 100;
+
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Kullanıcı Adı", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("İsim", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Soyisim", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Şifre", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Departman", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Yetkinlik", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Yetkinlik Seviyesi", font)));
+
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        string query = "SELECT username, name, surname, password, department, authority, authoritylevel FROM UserTable";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            connection.Open();
+                            using (SqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["username"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["name"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["surname"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["password"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["department"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["authority"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["authoritylevel"].ToString(), font)));
+                                }
+                            }
+                        }
+                    }
+
+                    pdfDoc.Add(pdfTable);
+                    pdfDoc.Close();
+
+                    MessageBox.Show($"PDF oluşturuldu ve kaydedildi: {pdfFileName}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
+    }
 }

@@ -44,6 +44,8 @@
             this.comboBoxDepartmentLevel = new System.Windows.Forms.ComboBox();
             this.button1 = new loginScreen.CustomBtn();
             this.btnGeri = new loginScreen.CustomBtn();
+            this.lblgizlisoru = new System.Windows.Forms.Label();
+            this.txtGizliSoru = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -176,7 +178,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(262, 339);
+            this.button1.Location = new System.Drawing.Point(262, 385);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(246, 69);
             this.button1.TabIndex = 17;
@@ -204,6 +206,23 @@
             this.btnGeri.UseVisualStyleBackColor = false;
             this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
+            // lblgizlisoru
+            // 
+            this.lblgizlisoru.AutoSize = true;
+            this.lblgizlisoru.BackColor = System.Drawing.Color.Transparent;
+            this.lblgizlisoru.Location = new System.Drawing.Point(40, 327);
+            this.lblgizlisoru.Name = "lblgizlisoru";
+            this.lblgizlisoru.Size = new System.Drawing.Size(145, 20);
+            this.lblgizlisoru.TabIndex = 19;
+            this.lblgizlisoru.Text = "En Sevdiği Meyve";
+            // 
+            // txtGizliSoru
+            // 
+            this.txtGizliSoru.Location = new System.Drawing.Point(43, 350);
+            this.txtGizliSoru.Name = "txtGizliSoru";
+            this.txtGizliSoru.Size = new System.Drawing.Size(100, 22);
+            this.txtGizliSoru.TabIndex = 20;
+            // 
             // IseAlim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,6 +230,8 @@
             this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtGizliSoru);
+            this.Controls.Add(this.lblgizlisoru);
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxDepartmentLevel);
@@ -253,5 +274,7 @@
         private System.Windows.Forms.ComboBox comboBoxDepartmentLevel;
         private CustomBtn button1;
         private CustomBtn btnGeri;
+        private System.Windows.Forms.Label lblgizlisoru;
+        private System.Windows.Forms.TextBox txtGizliSoru;
     }
 }

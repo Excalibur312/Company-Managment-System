@@ -33,13 +33,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmbAlıcı = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.lUserName = new System.Windows.Forms.Label();
-            this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Kişi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.User_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Kişi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Departman = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Konu = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Mail = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.lUserName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -96,6 +96,22 @@
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
+            // User_Name
+            // 
+            this.User_Name.DisplayIndex = 2;
+            // 
+            // Departman
+            // 
+            this.Departman.DisplayIndex = 3;
+            // 
+            // Konu
+            // 
+            this.Konu.DisplayIndex = 4;
+            // 
+            // Mail
+            // 
+            this.Mail.DisplayIndex = 0;
+            // 
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
@@ -116,22 +132,6 @@
             this.lUserName.TabIndex = 19;
             this.lUserName.Text = "Kullanıcı";
             // 
-            // Mail
-            // 
-            this.Mail.DisplayIndex = 0;
-            // 
-            // User_Name
-            // 
-            this.User_Name.DisplayIndex = 2;
-            // 
-            // Departman
-            // 
-            this.Departman.DisplayIndex = 3;
-            // 
-            // Konu
-            // 
-            this.Konu.DisplayIndex = 4;
-            // 
             // MailleriOku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -146,6 +146,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MailleriOku";
             this.Text = "MailleriOku";
             this.Load += new System.EventHandler(this.MailleriOku_Load);

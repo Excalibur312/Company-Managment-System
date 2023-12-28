@@ -215,7 +215,7 @@ namespace loginScreen
                             cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
 
                             AddDepartmentComputer();
-                            MessageBox.Show("You are Manager but access is restricted");
+                           
                         }
                         else if (numberD == 2)
                         {
@@ -227,7 +227,7 @@ namespace loginScreen
                             cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
 
                             AddDepartmentSoftware();
-                            MessageBox.Show("You are Manager but access is restricted");
+                   
                         }
                         else
                         {
@@ -239,7 +239,7 @@ namespace loginScreen
                             cmbDepartment.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
 
                             AddDepartmentRobotic();
-                            MessageBox.Show("You are Manager but access is restricted");
+                         
                         }
                     }
                     else
