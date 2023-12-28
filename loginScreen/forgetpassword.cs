@@ -8,15 +8,15 @@ namespace CompanyManagmentSystem
     public partial class forgetpassword : Form
     {
         private SqlConnection connection;
-        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=25.61.180.90;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         public forgetpassword()
         {
             InitializeComponent();
             connection = new SqlConnection(connectionString);
         }
-     
-        private bool ResetPassword(string username, string newPassword)
+
+        private bool ResetPassword(string username, string newPassword, string gizliCevap)
         {
             try
             {
@@ -32,6 +32,20 @@ namespace CompanyManagmentSystem
                 if (rowsAffected == 0)
                 {
                     MessageBox.Show("Kullanıcı bulunamadı!");
+                    return false;
+                }
+
+                // Gizli soru ve cevap kontrolü
+                string secretQuery = "SELECT COUNT(*) FROM GizliSoru WHERE username = @username AND cevap = @cevap";
+                SqlCommand secretCommand = new SqlCommand(secretQuery, connection);
+                secretCommand.Parameters.AddWithValue("@username", username);
+                secretCommand.Parameters.AddWithValue("@cevap", gizliCevap);
+
+                int secretMatchCount = (int)secretCommand.ExecuteScalar();
+                if (secretMatchCount == 0)
+                {
+                    MessageBox.Show("Gizli soru doğrulanamadı!");
+                    return false;
                 }
 
                 return rowsAffected > 0; // Şifre güncellendi mi kontrolü
@@ -47,12 +61,14 @@ namespace CompanyManagmentSystem
             }
         }
 
-        
+
 
         private void btnSifreyiDegistir_Click(object sender, EventArgs e)
         {
             string username = textBox1.Text;
+
             string newPassword = txtYeniSifre.Text;
+            string gizliCevap = txtGizliSoru.Text;  
 
             if (string.IsNullOrEmpty(username) && string.IsNullOrEmpty(newPassword))
             {
@@ -72,7 +88,7 @@ namespace CompanyManagmentSystem
                 return;
             }
 
-            if (ResetPassword(username, newPassword))
+            if (ResetPassword(username, newPassword, gizliCevap))
             {
                 MessageBox.Show("Şifre başarıyla yenilendi!");
             }
@@ -80,6 +96,11 @@ namespace CompanyManagmentSystem
             {
                 MessageBox.Show("Şifre yenilenirken bir hata oluştu.");
             }
+        }
+
+        private void btnGeriF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }
