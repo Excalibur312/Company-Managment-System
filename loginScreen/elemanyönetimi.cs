@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
-using System.IO;
 
 namespace loginScreen
 {
     public partial class ElemanYönetimi : Form
     {
-        public string connectionString = "Data Source=172.16.90.190;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         private SqlConnection connection;
         private SqlCommand command;
@@ -23,6 +20,8 @@ namespace loginScreen
         {
             InitializeComponent();
             Listeleme();
+
+            customBtn1.Click += customBtn1_Click;
         }
         public void Listeleme()
         {
@@ -81,7 +80,8 @@ namespace loginScreen
                 string.IsNullOrWhiteSpace(textBoxUsername.Text) ||
                 string.IsNullOrWhiteSpace(textBoxPassword.Text) ||
                 string.IsNullOrWhiteSpace(cmbDepartment.Text) ||
-                string.IsNullOrWhiteSpace(cmbAuthority.Text))
+                string.IsNullOrWhiteSpace(cmbAuthority.Text) ||
+                string.IsNullOrWhiteSpace(cmbauthoritylevel.Text))
 
                 {
                     // TextBox boş ise buraya girecek kod
@@ -94,13 +94,14 @@ namespace loginScreen
                 else
                 {
 
-                    SqlCommand command = new SqlCommand("UPDATE UserTable SET name=@name, surname=@surname, username=@username, password=@password, department=@department, authority=@authority WHERE username=" + listElemanlar.SelectedItems[0].Text, connection);
+                    SqlCommand command = new SqlCommand("UPDATE UserTable SET name=@name, surname=@surname, username=@username, password=@password, department=@department, authority=@authority, authoritylevel=@authoritylevel WHERE username=" + listElemanlar.SelectedItems[0].Text, connection);
                     command.Parameters.AddWithValue("@name", textBoxName.Text);
                     command.Parameters.AddWithValue("@surname", textBoxSurname.Text);
                     command.Parameters.AddWithValue("@username", textBoxUsername.Text);
                     command.Parameters.AddWithValue("@password", textBoxPassword.Text);
                     command.Parameters.AddWithValue("@department", cmbDepartment.SelectedItem.ToString());
                     command.Parameters.AddWithValue("@authority", cmbAuthority.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@authoritylevel", cmbauthoritylevel.SelectedItem.ToString());
 
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -130,45 +131,36 @@ namespace loginScreen
                 }
             }
 
-            }
+        }
 
         private void customBtn1_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            // ListView'da bir sütun seçili mi kontrol et
+            if (listElemanlar.SelectedItems.Count > 0)
             {
-                if (listElemanlar.SelectedItems.Count > 0)
-                {
-                    string id = listElemanlar.SelectedItems[0].Text;
+                // Seçilen sütunun verilerini al
+                ListViewItem selectedItem = listElemanlar.SelectedItems[0];
 
-                    try
-                    {
-                        connection.Open();
-                        string query = "SELECT * FROM UserTable WHEN username";
+                // Verileri TextBox ve ComboBox'lara yerleştir
+                textBoxUsername.Text = selectedItem.SubItems[0].Text;
+                textBoxName.Text = selectedItem.SubItems[1].Text;
+                textBoxSurname.Text = selectedItem.SubItems[2].Text;
+                textBoxPassword.Text = selectedItem.SubItems[3].Text;
 
-                        SqlCommand cmd = new SqlCommand(query, connection);
-                        cmd.Parameters.AddWithValue("@username", id);
 
-                        SqlDataReader dr = cmd.ExecuteReader();
-                        while (dr.Read())
-                        {
-                            textBoxUsername.Text = dr["username"].ToString();
-                            textBoxName.Text = dr["name"].ToString();
-                            textBoxSurname.Text = dr["surname"].ToString();
-                            textBoxPassword.Text = dr["Password"].ToString();
-                        }
+                // ComboBox'a seçili departmanı yerleştir
+                string depart1 = selectedItem.SubItems[4].Text;
+                string depart2 = selectedItem.SubItems[5].Text;
+                string depart3 = selectedItem.SubItems[6].Text;
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        connection.Close();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error");
-                    connection.Close();
-                }
+                cmbDepartment.SelectedItem = depart1;
+                cmbAuthority.SelectedItem = depart2;
+                cmbauthoritylevel.SelectedItem = depart3;
+            }
+            else
+            {
+                // Eğer ListView'da bir sütun seçilmediyse kullanıcıya bilgi ver
+                MessageBox.Show("Lütfen bir sütun seçin.");
             }
         }
 
@@ -205,83 +197,6 @@ namespace loginScreen
         {
             this.Hide();
         }
-
-        private void customBtn3_Click(object sender, EventArgs e)
-        {
-            {
-                PdfDokumente();
-            }
-        }
-            public void PdfDokumente()
-            {
-
-                try
-                {
-                    // Kullanıcıya kaydetme konumu için iletişim kutusu göster
-
-                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                    saveFileDialog1.Filter = "PDF Dosyası|*.pdf";
-                    saveFileDialog1.Title = "PDF Olarak Kaydet";
-                    saveFileDialog1.ShowDialog();
-
-                    if (saveFileDialog1.FileName != "")
-                    {
-                        string pdfFileName = saveFileDialog1.FileName;
-                        Document pdfDoc = new Document(PageSize.A4);
-
-                        // Başka bir font dosyası kullanarak özel bir font oluşturun
-                        BaseFont baseFont = BaseFont.CreateFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-                        Font font = new Font(baseFont);
-
-                        PdfWriter.GetInstance(pdfDoc, new FileStream(pdfFileName, FileMode.Create));
-                        pdfDoc.Open();
-
-                        PdfPTable pdfTable = new PdfPTable(7);
-                        pdfTable.WidthPercentage = 100;
-
-                        pdfTable.AddCell(new PdfPCell(new Phrase("Kullanıcı Adı", font)));
-                        pdfTable.AddCell(new PdfPCell(new Phrase("İsim", font)));
-                        pdfTable.AddCell(new PdfPCell(new Phrase("Soyisim", font)));
-                        pdfTable.AddCell(new PdfPCell(new Phrase("Şifre", font)));
-                        pdfTable.AddCell(new PdfPCell(new Phrase("Departman", font)));
-                        pdfTable.AddCell(new PdfPCell(new Phrase("Yetkinlik", font)));
-                        pdfTable.AddCell(new PdfPCell(new Phrase("Yetkinlik Seviyesi", font)));
-
-                        using (SqlConnection connection = new SqlConnection(connectionString))
-                        {
-                            string query = "SELECT username, name, surname, password, department, authority, authoritylevel FROM UserTable";
-
-                            using (SqlCommand command = new SqlCommand(query, connection))
-                            {
-                                connection.Open();
-                                using (SqlDataReader reader = command.ExecuteReader())
-                                {
-                                    while (reader.Read())
-                                    {
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["username"].ToString(), font)));
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["name"].ToString(), font)));
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["surname"].ToString(), font)));
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["password"].ToString(), font)));
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["department"].ToString(), font)));
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["authority"].ToString(), font)));
-                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["authoritylevel"].ToString(), font)));
-                                    }
-                                }
-                            }
-                        }
-
-                        pdfDoc.Add(pdfTable);
-                        pdfDoc.Close();
-
-                        MessageBox.Show($"PDF oluşturuldu ve kaydedildi: {pdfFileName}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Hata: " + ex.Message);
-                }
-            }
-        }
     }
 
- 
+}

@@ -315,7 +315,6 @@
             this.customBtn3.Text = "Bilgileri Dosyalaştır";
             this.customBtn3.TextdColor = System.Drawing.Color.White;
             this.customBtn3.UseVisualStyleBackColor = false;
-            this.customBtn3.Click += new System.EventHandler(this.customBtn3_Click);
             // 
             // ElemanYönetimi
             // 
