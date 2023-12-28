@@ -23,6 +23,8 @@ namespace loginScreen
             cmbDepartman.SelectedIndex = -1;
         }
 
+      
+
         private void btnGönder_Click(object sender, EventArgs e)
         {
             string alici = txtAlıcı.Text;

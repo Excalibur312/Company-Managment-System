@@ -57,6 +57,8 @@ namespace CompanyManagmentSystem
                     btnIseAlim.Enabled = true;
                     btnMailDcm .Visible = true;
                     btnMailDcm .Enabled = true;
+                    btnYönetim.Visible = true;
+                    btnYönetim.Enabled = true;
                     break;
             }
         }
@@ -85,11 +87,31 @@ namespace CompanyManagmentSystem
             mailGönderForm.Show();
         }
 
+ 
         private void btnCikis_Click(object sender, EventArgs e)
         {
             Form1 loginSceenForm = new Form1();
             loginSceenForm.Show();
             this.Hide();
+        }
+
+        private void btnMailDcm_Click(object sender, EventArgs e)
+        {
+            MailleriDökümante maillerDökümanteForm = new MailleriDökümante();
+            maillerDökümanteForm.Show();
+
+        }
+
+        private void btnBilgilendirme_Click(object sender, EventArgs e)
+        {
+            Bilgilendirme bilgilendirmeform = new Bilgilendirme();
+            bilgilendirmeform.Show();
+        }
+
+        private void btnMailOku_Click(object sender, EventArgs e)
+        {
+            MailleriOku mailokuform = new MailleriOku(username, authority,department);
+            mailokuform.Show();
         }
     }
    

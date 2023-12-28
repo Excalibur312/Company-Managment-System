@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkHatırla = new System.Windows.Forms.CheckBox();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.txtpassword = new System.Windows.Forms.TextBox();
             this.btnforgetpassword = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkHatırla = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -61,6 +61,12 @@
             this.panel1.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // checkHatırla
+            // 
+            resources.ApplyResources(this.checkHatırla, "checkHatırla");
+            this.checkHatırla.Name = "checkHatırla";
+            this.checkHatırla.UseVisualStyleBackColor = true;
             // 
             // txtusername
             // 
@@ -131,18 +137,12 @@
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // checkHatırla
-            // 
-            resources.ApplyResources(this.checkHatırla, "checkHatırla");
-            this.checkHatırla.Name = "checkHatırla";
-            this.checkHatırla.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

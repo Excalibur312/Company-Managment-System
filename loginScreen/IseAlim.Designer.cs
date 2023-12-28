@@ -33,7 +33,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.comboBoxDepartment = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,8 +41,9 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.comboBoxAuthorityLevel = new System.Windows.Forms.ComboBox();
             this.comboBoxAuthority = new System.Windows.Forms.ComboBox();
-            this.btnGeri = new System.Windows.Forms.Button();
             this.comboBoxDepartmentLevel = new System.Windows.Forms.ComboBox();
+            this.button1 = new loginScreen.CustomBtn();
+            this.btnGeri = new loginScreen.CustomBtn();
             this.SuspendLayout();
             // 
             // label1
@@ -51,55 +51,45 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(40, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(31, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Name";
+            this.label1.Text = "İsim";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(40, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.Size = new System.Drawing.Size(55, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Surname";
+            this.label2.Text = "Soyisim";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(40, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 16);
+            this.label3.Size = new System.Drawing.Size(79, 16);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Username";
+            this.label3.Text = "Kullanıcı Adı";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(40, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 16);
+            this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Password";
+            this.label4.Text = "Şifre";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(40, 213);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
+            this.label5.Size = new System.Drawing.Size(74, 16);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Department";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(318, 345);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 60);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Save It";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.label5.Text = "Departman";
             // 
             // textBoxName
             // 
@@ -122,9 +112,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(40, 269);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 16);
+            this.label6.Size = new System.Drawing.Size(53, 16);
             this.label6.TabIndex = 8;
-            this.label6.Text = "Authority";
+            this.label6.Text = "Yetkililk";
             // 
             // textBoxUsername
             // 
@@ -166,16 +156,6 @@
             this.comboBoxAuthority.TabIndex = 14;
             this.comboBoxAuthority.SelectedIndexChanged += new System.EventHandler(this.comboBoxAuthority_SelectedIndexChanged);
             // 
-            // btnGeri
-            // 
-            this.btnGeri.Location = new System.Drawing.Point(637, 382);
-            this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(75, 23);
-            this.btnGeri.TabIndex = 15;
-            this.btnGeri.Text = "Geri";
-            this.btnGeri.UseVisualStyleBackColor = true;
-            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
-            // 
             // comboBoxDepartmentLevel
             // 
             this.comboBoxDepartmentLevel.Enabled = false;
@@ -186,13 +166,54 @@
             this.comboBoxDepartmentLevel.TabIndex = 16;
             this.comboBoxDepartmentLevel.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.button1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.button1.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.button1.BorderRadius = 40;
+            this.button1.BorderSize = 0;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(262, 339);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(246, 69);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Çalışanı Kaydet";
+            this.button1.TextdColor = System.Drawing.Color.White;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnGeri
+            // 
+            this.btnGeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGeri.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGeri.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnGeri.BorderRadius = 40;
+            this.btnGeri.BorderSize = 0;
+            this.btnGeri.FlatAppearance.BorderSize = 0;
+            this.btnGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGeri.ForeColor = System.Drawing.Color.White;
+            this.btnGeri.Location = new System.Drawing.Point(629, 385);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(150, 40);
+            this.btnGeri.TabIndex = 18;
+            this.btnGeri.Text = "Geri";
+            this.btnGeri.TextdColor = System.Drawing.Color.White;
+            this.btnGeri.UseVisualStyleBackColor = false;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
             // IseAlim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.comboBoxDepartmentLevel);
             this.Controls.Add(this.btnGeri);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBoxDepartmentLevel);
             this.Controls.Add(this.comboBoxAuthority);
             this.Controls.Add(this.comboBoxAuthorityLevel);
             this.Controls.Add(this.textBoxPassword);
@@ -201,12 +222,12 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxDepartment);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "IseAlim";
             this.Text = "IseAlim";
             this.ResumeLayout(false);
@@ -221,7 +242,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.ComboBox comboBoxDepartment;
         private System.Windows.Forms.Label label6;
@@ -230,7 +250,8 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.ComboBox comboBoxAuthorityLevel;
         private System.Windows.Forms.ComboBox comboBoxAuthority;
-        private System.Windows.Forms.Button btnGeri;
         private System.Windows.Forms.ComboBox comboBoxDepartmentLevel;
+        private CustomBtn button1;
+        private CustomBtn btnGeri;
     }
 }

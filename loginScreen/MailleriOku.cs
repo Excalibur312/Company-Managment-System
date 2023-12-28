@@ -199,8 +199,6 @@ namespace loginScreen
                 case 1:
                     // manager
                     AddDepartments();
-
-                    MessageBox.Show("You are Manager");
                     break;
 
                 case 2:
@@ -327,7 +325,7 @@ namespace loginScreen
         {
             string selectedUsername = cmbAlıcı.SelectedItem.ToString();
 
-            string query = "SELECT Username, Alici, Departman, Baslik, GönderilenMail FROM Mail WHERE Username = @Username"; // Tablo ve sütun adlarınıza göre değiştirin
+            string query = "SELECT username, Alıcı, Departman, Başlık, GönderilenMail FROM Mail WHERE username = @Username"; // Tablo ve sütun adlarınıza göre değiştirin
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -350,10 +348,10 @@ namespace loginScreen
                     {
                         // Okunan verileri alın
                         
-                        string userName = reader["Username"].ToString();
-                        string alıcı = reader["Alici"].ToString();
+                        string userName = reader["username"].ToString();
+                        string alıcı = reader["Alıcı"].ToString();
                         string departman = reader["Departman"].ToString();
-                        string baslık = reader["Baslik"].ToString();
+                        string baslık = reader["Başlık"].ToString();
                         string message = reader["GönderilenMail"].ToString();
 
                         // ListView'e ekleme yapın

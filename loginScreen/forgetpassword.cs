@@ -8,7 +8,7 @@ namespace CompanyManagmentSystem
     public partial class forgetpassword : Form
     {
         private SqlConnection connection;
-        public string connectionString = "Data Source=192.168.18.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         public forgetpassword()
         {

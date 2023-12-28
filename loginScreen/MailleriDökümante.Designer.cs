@@ -150,6 +150,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.cmbDepartment);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MailleriDökümante";
             this.Text = "MailleriDökümante";
             this.ResumeLayout(false);

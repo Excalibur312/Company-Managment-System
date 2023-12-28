@@ -1,7 +1,11 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace loginScreen
@@ -112,45 +116,50 @@ namespace loginScreen
                     cmbDepartment.Enabled = true;
                     cmbSelectedDepartment.Enabled = true;
                     cmbSelectedDepartment.Visible = true;
-                    txtboxIş.Enabled= true;
-                    txtboxIş.Visible= true;
+                    txtboxIş.Enabled = true;
+                    txtboxIş.Visible = true;
                     btnEkle.Enabled = true;
                     btnEkle.Visible = true;
+                    btnZRaporu.Enabled = true;
+                    btnZRaporu.Visible = true;
                     break;
                 case 2:
                     cmbDepartment.Enabled = false;
                     cmbSelectedDepartment.Enabled = false;
-                    cmbSelectedDepartment.Visible= false;
+                    cmbSelectedDepartment.Visible = false;
                     txtboxIş.Visible = false;
                     txtboxIş.Enabled = false;
-                    btnEkle.Visible= false;
-                    btnEkle.Enabled= false;
+                    btnEkle.Visible = false;
+                    btnEkle.Enabled = false;
+                    btnZRaporu .Visible = false;
+                    btnZRaporu.Enabled = false;
                     break;
                 case 3:
                     cmbDepartment.Enabled = false;
-                    cmbSelectedDepartment.Enabled=false;
-                    cmbSelectedDepartment.Visible=  false;
-                    txtboxIş.Visible=   false;
-                    txtboxIş.Enabled= false;
+                    cmbSelectedDepartment.Enabled = false;
+                    cmbSelectedDepartment.Visible = false;
+                    txtboxIş.Visible = false;
+                    txtboxIş.Enabled = false;
                     btnEkle.Visible = false;
                     btnEkle.Enabled = false;
+                    btnZRaporu.Visible = false;
+                    btnZRaporu.Enabled = false;
                     break;
                 default:
                     cmbDepartment.Enabled = false;
-                    cmbSelectedDepartment.Enabled= false;
-                    cmbSelectedDepartment.Visible= false;
-                    txtboxIş.Enabled=false;
+                    cmbSelectedDepartment.Enabled = false;
+                    cmbSelectedDepartment.Visible = false;
+                    txtboxIş.Enabled = false;
                     txtboxIş.Visible = false;
                     btnEkle.Visible = false;
                     btnEkle.Enabled = false;
+                    btnZRaporu.Visible = false;
+                    btnZRaporu.Enabled = false;
                     break;
             }
         }
 
-        private void btnGeri_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
+
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
@@ -195,8 +204,60 @@ namespace loginScreen
             foreach (string selectedItem in selectedItems)
             {
                 MoveItemToAnotherList(selectedItem, "Yapılacakİşler", "Yapılıyorİşler");
+                SaveToDatabaseBaslat();
             }
             FillListBoxes();
+        }
+
+        private void SaveToDatabaseBaslat()
+        {
+            string username = txtKullanici.Text;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO ÇalışmaSayısı (username, yapilaniş) VALUES (@Username, @YapilanIs)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@YapilanIs", "devam");
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Veri başarıyla eklendi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+        }
+        private void SaveToDatabaseBitir()
+        {
+            string username = txtKullanici.Text;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO ÇalışmaSayısı (username, yapilaniş) VALUES (@Username, @YapilanIs)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+                        command.Parameters.AddWithValue("@YapilanIs", "bitti");
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Veri başarıyla eklendi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
         }
         private void btnBitir_Click(object sender, EventArgs e)
         {
@@ -205,6 +266,7 @@ namespace loginScreen
             foreach (string selectedItem in selectedItems)
             {
                 MoveItemToAnotherList(selectedItem, "Yapılıyorİşler", "Bitenİşler");
+                SaveToDatabaseBitir();
             }
 
         }
@@ -245,7 +307,73 @@ namespace loginScreen
             }
         }
 
-        
-       
+        private void btnGeri_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+        private void btnZRaporu_Click(object sender, EventArgs e)
+        {
+            SaveMailPDF();
+        }
+
+        private void SaveMailPDF()
+        {
+                try
+                {
+                    // Kullanıcıya kaydetme konumu için iletişim kutusu göster
+
+                    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                    saveFileDialog1.Filter = "PDF Dosyası|*.pdf";
+                    saveFileDialog1.Title = "PDF Olarak Kaydet";
+                    saveFileDialog1.ShowDialog();
+
+                    if (saveFileDialog1.FileName != "")
+                    {
+                        string pdfFileName = saveFileDialog1.FileName;
+                        Document pdfDoc = new Document(PageSize.A4);
+
+                        // Başka bir font dosyası kullanarak özel bir font oluşturun
+                        BaseFont baseFont = BaseFont.CreateFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                        Font font = new Font(baseFont);
+
+                        PdfWriter.GetInstance(pdfDoc, new FileStream(pdfFileName, FileMode.Create));
+                        pdfDoc.Open();
+
+                        PdfPTable pdfTable = new PdfPTable(2);
+                        pdfTable.WidthPercentage = 100;
+
+                        pdfTable.AddCell(new PdfPCell(new Phrase("Kullanıcı Adı", font)));
+                        pdfTable.AddCell(new PdfPCell(new Phrase("Yapılan İş", font)));
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            string query = "SELECT username, yapilaniş FROM ÇalışmaSayısı";
+
+                            using (SqlCommand command = new SqlCommand(query, connection))
+                            {
+                                connection.Open();
+                                using (SqlDataReader reader = command.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["username"].ToString(), font)));
+                                        pdfTable.AddCell(new PdfPCell(new Phrase(reader["yapilaniş"].ToString(), font)));
+                                   
+                                    }
+                                }
+                            }
+                        }
+
+                        pdfDoc.Add(pdfTable);
+                        pdfDoc.Close();
+
+                        MessageBox.Show($"PDF oluşturuldu ve kaydedildi: {pdfFileName}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+            }
+        }
     }
-}
+

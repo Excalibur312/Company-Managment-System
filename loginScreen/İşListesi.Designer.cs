@@ -34,7 +34,6 @@
             this.lblYapılacakİşler = new System.Windows.Forms.Label();
             this.lblDEİşler = new System.Windows.Forms.Label();
             this.lblBitenİşler = new System.Windows.Forms.Label();
-            this.btnGeri = new System.Windows.Forms.Button();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.lblKullanıcı = new System.Windows.Forms.Label();
             this.txtKullanici = new System.Windows.Forms.TextBox();
@@ -44,6 +43,8 @@
             this.btnBaşlat = new loginScreen.CustomBtn();
             this.btnEkle = new loginScreen.CustomBtn();
             this.cmbSelectedDepartment = new System.Windows.Forms.ComboBox();
+            this.btnGeri = new loginScreen.CustomBtn();
+            this.btnZRaporu = new loginScreen.CustomBtn();
             this.SuspendLayout();
             // 
             // listBYapılacaklar
@@ -100,16 +101,6 @@
             this.lblBitenİşler.Size = new System.Drawing.Size(65, 16);
             this.lblBitenİşler.TabIndex = 5;
             this.lblBitenİşler.Text = "Biten İşler";
-            // 
-            // btnGeri
-            // 
-            this.btnGeri.Location = new System.Drawing.Point(700, 384);
-            this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(75, 23);
-            this.btnGeri.TabIndex = 8;
-            this.btnGeri.Text = "Geri";
-            this.btnGeri.UseVisualStyleBackColor = true;
-            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
             // cmbDepartment
             // 
@@ -218,6 +209,44 @@
             this.cmbSelectedDepartment.Size = new System.Drawing.Size(121, 24);
             this.cmbSelectedDepartment.TabIndex = 18;
             // 
+            // btnGeri
+            // 
+            this.btnGeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGeri.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGeri.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnGeri.BorderRadius = 30;
+            this.btnGeri.BorderSize = 0;
+            this.btnGeri.FlatAppearance.BorderSize = 0;
+            this.btnGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGeri.ForeColor = System.Drawing.Color.White;
+            this.btnGeri.Location = new System.Drawing.Point(688, 394);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(100, 30);
+            this.btnGeri.TabIndex = 19;
+            this.btnGeri.Text = "Geri";
+            this.btnGeri.TextdColor = System.Drawing.Color.White;
+            this.btnGeri.UseVisualStyleBackColor = false;
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
+            // 
+            // btnZRaporu
+            // 
+            this.btnZRaporu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnZRaporu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnZRaporu.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnZRaporu.BorderRadius = 40;
+            this.btnZRaporu.BorderSize = 0;
+            this.btnZRaporu.FlatAppearance.BorderSize = 0;
+            this.btnZRaporu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZRaporu.ForeColor = System.Drawing.Color.White;
+            this.btnZRaporu.Location = new System.Drawing.Point(168, 384);
+            this.btnZRaporu.Name = "btnZRaporu";
+            this.btnZRaporu.Size = new System.Drawing.Size(150, 40);
+            this.btnZRaporu.TabIndex = 20;
+            this.btnZRaporu.Text = "Z Raporu";
+            this.btnZRaporu.TextdColor = System.Drawing.Color.White;
+            this.btnZRaporu.UseVisualStyleBackColor = false;
+            this.btnZRaporu.Click += new System.EventHandler(this.btnZRaporu_Click);
+            // 
             // İş_Listesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,6 +254,8 @@
             this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnZRaporu);
+            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.cmbSelectedDepartment);
             this.Controls.Add(this.txtboxIş);
             this.Controls.Add(this.btnBitir);
@@ -234,7 +265,6 @@
             this.Controls.Add(this.txtKullanici);
             this.Controls.Add(this.lblKullanıcı);
             this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.lblBitenİşler);
             this.Controls.Add(this.lblDEİşler);
             this.Controls.Add(this.lblYapılacakİşler);
@@ -257,7 +287,6 @@
         private System.Windows.Forms.Label lblYapılacakİşler;
         private System.Windows.Forms.Label lblDEİşler;
         private System.Windows.Forms.Label lblBitenİşler;
-        private System.Windows.Forms.Button btnGeri;
         private System.Windows.Forms.ComboBox cmbDepartment;
         private System.Windows.Forms.Label lblKullanıcı;
         private System.Windows.Forms.TextBox txtKullanici;
@@ -267,5 +296,7 @@
         private CustomBtn btnBitir;
         private System.Windows.Forms.TextBox txtboxIş;
         private System.Windows.Forms.ComboBox cmbSelectedDepartment;
+        private CustomBtn btnGeri;
+        private CustomBtn btnZRaporu;
     }
 }

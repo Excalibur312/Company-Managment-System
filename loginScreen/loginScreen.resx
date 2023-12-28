@@ -177,6 +177,9 @@
   <data name="txtpassword.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
+  <data name="txtpassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
   <data name="txtpassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>276, 15</value>
   </data>
@@ -214,7 +217,7 @@
     <value>4</value>
   </data>
   <data name="btnforgetpassword.Text" xml:space="preserve">
-    <value>Forgot password ?</value>
+    <value>Şifremi Unuttum</value>
   </data>
   <data name="&gt;&gt;btnforgetpassword.Name" xml:space="preserve">
     <value>btnforgetpassword</value>

@@ -11,7 +11,7 @@ namespace loginScreen
     public partial class MailleriDökümante : Form
     {
 
-        public string connectionString = "Data Source=172.16.90.190;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
+        public string connectionString = "Data Source=192.168.56.1;Initial Catalog=CompanyManagment;User ID=ortak;Password=123;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;";
 
         public MailleriDökümante()
         {

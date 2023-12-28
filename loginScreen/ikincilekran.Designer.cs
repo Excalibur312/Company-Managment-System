@@ -86,7 +86,7 @@
             this.btnMailYaz.FlatAppearance.BorderSize = 0;
             this.btnMailYaz.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMailYaz.ForeColor = System.Drawing.Color.White;
-            this.btnMailYaz.Location = new System.Drawing.Point(12, 185);
+            this.btnMailYaz.Location = new System.Drawing.Point(12, 343);
             this.btnMailYaz.Name = "btnMailYaz";
             this.btnMailYaz.Size = new System.Drawing.Size(150, 40);
             this.btnMailYaz.TabIndex = 11;
@@ -105,13 +105,14 @@
             this.btnMailOku.FlatAppearance.BorderSize = 0;
             this.btnMailOku.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMailOku.ForeColor = System.Drawing.Color.White;
-            this.btnMailOku.Location = new System.Drawing.Point(12, 238);
+            this.btnMailOku.Location = new System.Drawing.Point(12, 389);
             this.btnMailOku.Name = "btnMailOku";
             this.btnMailOku.Size = new System.Drawing.Size(150, 40);
             this.btnMailOku.TabIndex = 12;
             this.btnMailOku.Text = "Mailleri Gör";
             this.btnMailOku.TextdColor = System.Drawing.Color.White;
             this.btnMailOku.UseVisualStyleBackColor = false;
+            this.btnMailOku.Click += new System.EventHandler(this.btnMailOku_Click);
             // 
             // btnMailDcm
             // 
@@ -123,13 +124,14 @@
             this.btnMailDcm.FlatAppearance.BorderSize = 0;
             this.btnMailDcm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMailDcm.ForeColor = System.Drawing.Color.White;
-            this.btnMailDcm.Location = new System.Drawing.Point(12, 285);
+            this.btnMailDcm.Location = new System.Drawing.Point(12, 104);
             this.btnMailDcm.Name = "btnMailDcm";
             this.btnMailDcm.Size = new System.Drawing.Size(150, 40);
             this.btnMailDcm.TabIndex = 13;
             this.btnMailDcm.Text = "Mailleri Dökümante Et";
             this.btnMailDcm.TextdColor = System.Drawing.Color.White;
             this.btnMailDcm.UseVisualStyleBackColor = false;
+            this.btnMailDcm.Click += new System.EventHandler(this.btnMailDcm_Click);
             // 
             // btnİşListesi
             // 
@@ -141,7 +143,7 @@
             this.btnİşListesi.FlatAppearance.BorderSize = 0;
             this.btnİşListesi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnİşListesi.ForeColor = System.Drawing.Color.White;
-            this.btnİşListesi.Location = new System.Drawing.Point(12, 118);
+            this.btnİşListesi.Location = new System.Drawing.Point(12, 297);
             this.btnİşListesi.Name = "btnİşListesi";
             this.btnİşListesi.Size = new System.Drawing.Size(150, 40);
             this.btnİşListesi.TabIndex = 14;
@@ -160,13 +162,14 @@
             this.btnBilgilendirme.FlatAppearance.BorderSize = 0;
             this.btnBilgilendirme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilgilendirme.ForeColor = System.Drawing.Color.White;
-            this.btnBilgilendirme.Location = new System.Drawing.Point(12, 341);
+            this.btnBilgilendirme.Location = new System.Drawing.Point(638, 12);
             this.btnBilgilendirme.Name = "btnBilgilendirme";
             this.btnBilgilendirme.Size = new System.Drawing.Size(150, 40);
             this.btnBilgilendirme.TabIndex = 15;
             this.btnBilgilendirme.Text = "Bilgiler";
             this.btnBilgilendirme.TextdColor = System.Drawing.Color.White;
             this.btnBilgilendirme.UseVisualStyleBackColor = false;
+            this.btnBilgilendirme.Click += new System.EventHandler(this.btnBilgilendirme_Click);
             // 
             // btnCikis
             // 
@@ -178,7 +181,7 @@
             this.btnCikis.FlatAppearance.BorderSize = 0;
             this.btnCikis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCikis.ForeColor = System.Drawing.Color.White;
-            this.btnCikis.Location = new System.Drawing.Point(12, 398);
+            this.btnCikis.Location = new System.Drawing.Point(638, 398);
             this.btnCikis.Name = "btnCikis";
             this.btnCikis.Size = new System.Drawing.Size(150, 40);
             this.btnCikis.TabIndex = 16;
