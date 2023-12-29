@@ -33,6 +33,9 @@
             this.lblYeniSifre = new System.Windows.Forms.Label();
             this.txtYeniSifre = new System.Windows.Forms.TextBox();
             this.btnSifreyiDegistir = new loginScreen.CustomBtn();
+            this.lblGizliSoru = new System.Windows.Forms.Label();
+            this.txtGizliSoru = new System.Windows.Forms.TextBox();
+            this.btnGeriF = new loginScreen.CustomBtn();
             this.SuspendLayout();
             // 
             // textBox1
@@ -81,8 +84,8 @@
             this.btnSifreyiDegistir.FlatAppearance.BorderSize = 0;
             this.btnSifreyiDegistir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSifreyiDegistir.ForeColor = System.Drawing.Color.White;
-            this.btnSifreyiDegistir.Location = new System.Drawing.Point(95, 209);
-            this.btnSifreyiDegistir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSifreyiDegistir.Location = new System.Drawing.Point(93, 290);
+            this.btnSifreyiDegistir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSifreyiDegistir.Name = "btnSifreyiDegistir";
             this.btnSifreyiDegistir.Size = new System.Drawing.Size(200, 38);
             this.btnSifreyiDegistir.TabIndex = 5;
@@ -91,19 +94,57 @@
             this.btnSifreyiDegistir.UseVisualStyleBackColor = false;
             this.btnSifreyiDegistir.Click += new System.EventHandler(this.btnSifreyiDegistir_Click);
             // 
+            // lblGizliSoru
+            // 
+            this.lblGizliSoru.AutoSize = true;
+            this.lblGizliSoru.BackColor = System.Drawing.Color.Transparent;
+            this.lblGizliSoru.Location = new System.Drawing.Point(96, 204);
+            this.lblGizliSoru.Name = "lblGizliSoru";
+            this.lblGizliSoru.Size = new System.Drawing.Size(63, 16);
+            this.lblGizliSoru.TabIndex = 6;
+            this.lblGizliSoru.Text = "Gizli Soru";
+            // 
+            // txtGizliSoru
+            // 
+            this.txtGizliSoru.Location = new System.Drawing.Point(100, 241);
+            this.txtGizliSoru.Name = "txtGizliSoru";
+            this.txtGizliSoru.Size = new System.Drawing.Size(189, 22);
+            this.txtGizliSoru.TabIndex = 7;
+            // 
+            // btnGeriF
+            // 
+            this.btnGeriF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGeriF.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(90)))), ((int)(((byte)(120)))));
+            this.btnGeriF.BorderCoIor = System.Drawing.Color.PaleVioletRed;
+            this.btnGeriF.BorderRadius = 40;
+            this.btnGeriF.BorderSize = 0;
+            this.btnGeriF.FlatAppearance.BorderSize = 0;
+            this.btnGeriF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGeriF.ForeColor = System.Drawing.Color.White;
+            this.btnGeriF.Location = new System.Drawing.Point(398, 342);
+            this.btnGeriF.Name = "btnGeriF";
+            this.btnGeriF.Size = new System.Drawing.Size(111, 40);
+            this.btnGeriF.TabIndex = 8;
+            this.btnGeriF.Text = "Login";
+            this.btnGeriF.TextdColor = System.Drawing.Color.White;
+            this.btnGeriF.UseVisualStyleBackColor = false;
+            this.btnGeriF.Click += new System.EventHandler(this.btnGeriF_Click);
+            // 
             // forgetpassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::loginScreen.Properties.Resources.mini_sceen_Çalışma_Yüzeyi_1;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(425, 284);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(521, 394);
+            this.Controls.Add(this.btnGeriF);
+            this.Controls.Add(this.txtGizliSoru);
+            this.Controls.Add(this.lblGizliSoru);
             this.Controls.Add(this.btnSifreyiDegistir);
             this.Controls.Add(this.txtYeniSifre);
             this.Controls.Add(this.lblYeniSifre);
             this.Controls.Add(this.lblusername);
             this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "forgetpassword";
             this.Text = "Form1";
@@ -119,5 +160,8 @@
         private System.Windows.Forms.Label lblYeniSifre;
         private System.Windows.Forms.TextBox txtYeniSifre;
         private loginScreen.CustomBtn btnSifreyiDegistir;
+        private System.Windows.Forms.Label lblGizliSoru;
+        private System.Windows.Forms.TextBox txtGizliSoru;
+        private loginScreen.CustomBtn btnGeriF;
     }
 }
