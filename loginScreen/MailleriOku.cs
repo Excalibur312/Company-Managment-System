@@ -32,7 +32,7 @@ namespace loginScreen
 
             this.Load += MailleriOku_Load;
 
-
+        
             cmbDepartment.SelectedIndexChanged += cmbDepartment_SelectedIndexChanged;
             cmbAlıcı.SelectedIndexChanged += cmbAlıcı_SelectedIndexChanged;
 
@@ -194,6 +194,8 @@ namespace loginScreen
             DepartmentsByUsername(username);
             ResetControls();
 
+           
+
             switch (authority)
             {
                 case 1:
@@ -260,7 +262,6 @@ namespace loginScreen
                         cmbAlıcı.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
                         cmbAlıcı.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
 
-                        MessageBox.Show("Your level is very low (inside)");
                     }
                     break;
 
@@ -281,7 +282,6 @@ namespace loginScreen
                     cmbAlıcı.SelectedIndex = 0; // Varsayılan metni seçili hale getirir
                     cmbAlıcı.DropDownStyle = ComboBoxStyle.DropDownList; // Kullanıcı tarafından değiştirilemez
 
-                    MessageBox.Show("Your level is very low");
 
                     break;
 

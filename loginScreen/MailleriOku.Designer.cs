@@ -46,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(99, 174);
+            this.label1.Location = new System.Drawing.Point(56, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 16);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(83, 144);
+            this.label6.Location = new System.Drawing.Point(40, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 16);
             this.label6.TabIndex = 5;
@@ -66,7 +66,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Location = new System.Drawing.Point(118, 208);
+            this.label9.Location = new System.Drawing.Point(75, 124);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 16);
             this.label9.TabIndex = 8;
@@ -75,7 +75,7 @@
             // cmbAlıcı
             // 
             this.cmbAlıcı.FormattingEnabled = true;
-            this.cmbAlıcı.Location = new System.Drawing.Point(163, 171);
+            this.cmbAlıcı.Location = new System.Drawing.Point(120, 87);
             this.cmbAlıcı.Name = "cmbAlıcı";
             this.cmbAlıcı.Size = new System.Drawing.Size(159, 24);
             this.cmbAlıcı.TabIndex = 16;
@@ -90,32 +90,42 @@
             this.Konu,
             this.Mail});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(163, 208);
+            this.listView1.Location = new System.Drawing.Point(120, 124);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(570, 230);
+            this.listView1.Size = new System.Drawing.Size(668, 314);
             this.listView1.TabIndex = 17;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // User_Name
             // 
-            this.User_Name.DisplayIndex = 2;
+            this.User_Name.Text = "Kişi Adı";
+            this.User_Name.Width = 87;
+            // 
+            // Kişi
+            // 
+            this.Kişi.Text = "Gönderen Kişi";
+            this.Kişi.Width = 104;
             // 
             // Departman
             // 
-            this.Departman.DisplayIndex = 3;
+            this.Departman.Text = "Departman";
+            this.Departman.Width = 93;
             // 
             // Konu
             // 
-            this.Konu.DisplayIndex = 4;
+            this.Konu.Text = "Başlık";
+            this.Konu.Width = 99;
             // 
             // Mail
             // 
             this.Mail.DisplayIndex = 0;
+            this.Mail.Text = "Mail";
             // 
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(163, 141);
+            this.cmbDepartment.Location = new System.Drawing.Point(120, 57);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(159, 24);
             this.cmbDepartment.TabIndex = 18;

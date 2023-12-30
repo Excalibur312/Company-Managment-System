@@ -308,7 +308,7 @@ namespace loginScreen
                     PdfWriter.GetInstance(pdfDoc, new FileStream(pdfFileName, FileMode.Create));
                     pdfDoc.Open();
 
-                    PdfPTable pdfTable = new PdfPTable(7);
+                    PdfPTable pdfTable = new PdfPTable(8);
                     pdfTable.WidthPercentage = 100;
 
                     pdfTable.AddCell(new PdfPCell(new Phrase("Kullanıcı Adı", font)));
@@ -318,10 +318,11 @@ namespace loginScreen
                     pdfTable.AddCell(new PdfPCell(new Phrase("Departman", font)));
                     pdfTable.AddCell(new PdfPCell(new Phrase("Yetkinlik", font)));
                     pdfTable.AddCell(new PdfPCell(new Phrase("Yetkinlik Seviyesi", font)));
+                    pdfTable.AddCell(new PdfPCell(new Phrase("Gizli Soru", font)));
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
-                        string query = "SELECT username, name, surname, password, department, authority, authoritylevel FROM UserTable";
+                        string query = "SELECT username, name, surname, password, department, authority, authoritylevel,gizlisoru FROM UserTable";
 
                         using (SqlCommand command = new SqlCommand(query, connection))
                         {
@@ -337,6 +338,7 @@ namespace loginScreen
                                     pdfTable.AddCell(new PdfPCell(new Phrase(reader["department"].ToString(), font)));
                                     pdfTable.AddCell(new PdfPCell(new Phrase(reader["authority"].ToString(), font)));
                                     pdfTable.AddCell(new PdfPCell(new Phrase(reader["authoritylevel"].ToString(), font)));
+                                    pdfTable.AddCell(new PdfPCell(new Phrase(reader["gizlisoru"].ToString(), font)));
                                 }
                             }
                         }

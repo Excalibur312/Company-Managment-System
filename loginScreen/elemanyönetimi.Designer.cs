@@ -36,6 +36,7 @@
             this.Department = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Authority = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AuthorityLevel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.gizlisoru = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblKullanıcıAdı = new System.Windows.Forms.Label();
             this.lblİsim = new System.Windows.Forms.Label();
             this.lblSoyisim = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.cmbAuthority = new System.Windows.Forms.ComboBox();
             this.cmbauthoritylevel = new System.Windows.Forms.ComboBox();
             this.cmbDepartmanlevel = new System.Windows.Forms.ComboBox();
-            this.gizlisoru = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtGizliSoru = new System.Windows.Forms.TextBox();
             this.lblGizliSoru = new System.Windows.Forms.Label();
             this.customBtn3 = new loginScreen.CustomBtn();
@@ -113,6 +113,11 @@
             // 
             this.AuthorityLevel.Text = "Yetkinlik Seviyesi";
             this.AuthorityLevel.Width = 120;
+            // 
+            // gizlisoru
+            // 
+            this.gizlisoru.Text = "Gizli Soru";
+            this.gizlisoru.Width = 87;
             // 
             // lblKullanıcıAdı
             // 
@@ -235,11 +240,6 @@
             this.cmbDepartmanlevel.Size = new System.Drawing.Size(97, 24);
             this.cmbDepartmanlevel.TabIndex = 25;
             // 
-            // gizlisoru
-            // 
-            this.gizlisoru.Text = "Gizli Soru";
-            this.gizlisoru.Width = 87;
-            // 
             // txtGizliSoru
             // 
             this.txtGizliSoru.Location = new System.Drawing.Point(688, 290);
@@ -250,6 +250,7 @@
             // lblGizliSoru
             // 
             this.lblGizliSoru.AutoSize = true;
+            this.lblGizliSoru.BackColor = System.Drawing.Color.Transparent;
             this.lblGizliSoru.Location = new System.Drawing.Point(689, 262);
             this.lblGizliSoru.Name = "lblGizliSoru";
             this.lblGizliSoru.Size = new System.Drawing.Size(63, 16);
